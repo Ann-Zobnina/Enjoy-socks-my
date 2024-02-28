@@ -1,11 +1,31 @@
+import axios from 'axios';
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 export default function FormAuth() {
+  const submitHandlerLogin = async (event) => {
+    event.preventDefault();
+    try {
+      const formData = Object.fromEntries(new FormData(event.target));
+      const response = await axios.
+    } catch (error) {
+      throw new Error(error.response.data.message);
+    }
+  };
+
+  const submitHandlerRegister = async (event) => {
+    event.preventDefault();
+    try {
+      const formData = Object.fromEntries(new FormData(event.target));
+    } catch (error) {
+      throw new Error(error.response.data.message);
+    }
+  };
+
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', margin: 'auto' }}>
-      <Form style={{ color: 'black' }}>
+      <Form onSubmit={submitHandlerLogin} style={{ color: 'black' }}>
         <h3 style={{ marginLeft: '250px' }}>ВХОД В ЛИЧНЫЙ КАБИНЕТ</h3>
         <h5>ВХОД</h5>
         <Form.Group className="mb-3" controlId="formBasicEmail" style={{ width: '300px' }}>
@@ -21,7 +41,7 @@ export default function FormAuth() {
         </Button>
       </Form>
 
-      <Form style={{ color: 'black', marginTop: '40px' }}>
+      <Form onSubmit={submitHandlerRegister} style={{ color: 'black', marginTop: '40px' }}>
         <h5>Регистрация</h5>
         <Form.Group className="mb-3" controlId="formBasicEmail" style={{ width: '300px' }}>
           <Form.Label>E-mail</Form.Label>
