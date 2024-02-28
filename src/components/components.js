@@ -1,7 +1,7 @@
-import IndexPage from './pages/IndexPage';
+import Page from './pages/Page';
 
 const components = {
-  IndexPage,
+  Page,
 };
 
 export default components;
