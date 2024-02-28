@@ -6,7 +6,7 @@ import Footer from '../ui/Footer';
 export default function Page() {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <Carousel>
         <Carousel.Item>
           <img
@@ -28,7 +28,7 @@ export default function Page() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
