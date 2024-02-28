@@ -7,6 +7,7 @@ import jsxRender from './utils/jsxRender';
 import indexRouter from './routes/indexRouter';
 import apiChangeRouter from './routes/apiChangeRouter';
 import resLocals from './middlewares/resLocals';
+import apiAuthRouter from './routes/apiAuthRouter';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
