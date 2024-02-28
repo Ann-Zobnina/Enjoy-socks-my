@@ -24,7 +24,7 @@ export default function FormAuth() {
       const formData = Object.fromEntries(new FormData(event.target));
       const response = await axios.post('api/auth/signup', formData);
       if (response.status === 200) {
-        alert('Вы успешно зарегистрировались'); // test что воркает //aaa
+        alert('Вы успешно зарегистрировались'); // test что воркает //aaaddd
         window.location = '/';
       }
     } catch (error) {
