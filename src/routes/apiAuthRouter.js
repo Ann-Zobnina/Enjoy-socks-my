@@ -6,7 +6,7 @@ import cookiesConfig from '../config/cookiesConfig';
 
 const apiAuthRouter = Router();
 
-apiAuthRouter.post('/reg', async (req, res) => {
+apiAuthRouter.post('/signup', async (req, res) => {
   const { name, email, password } = req.body;
   try {
     if (!name || !email || !password) throw new Error('Не все поля заполнены!');

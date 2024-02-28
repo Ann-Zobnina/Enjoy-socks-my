@@ -8,7 +8,11 @@ export default function FormAuth() {
     event.preventDefault();
     try {
       const formData = Object.fromEntries(new FormData(event.target));
-      const response = await axios.
+      const response = await axios.post('api/auth/login', formData);
+      if (response.status === 200) {
+        alert('Вы успешно залогинились'); // test что воркает
+        window.location = '/';
+      }
     } catch (error) {
       throw new Error(error.response.data.message);
     }
@@ -18,6 +22,11 @@ export default function FormAuth() {
     event.preventDefault();
     try {
       const formData = Object.fromEntries(new FormData(event.target));
+      const response = await axios.post('api/auth/signup', formData);
+      if (response.status === 200) {
+        alert('Вы успешно зарегистрировались'); // test что воркает //aaaddd
+        window.location = '/';
+      }
     } catch (error) {
       throw new Error(error.response.data.message);
     }
