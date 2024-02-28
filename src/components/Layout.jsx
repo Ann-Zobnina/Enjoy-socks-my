@@ -20,7 +20,7 @@ export default function Layout({ children, initState }) {
             __html: `window.initState=${JSON.stringify(initState)}`,
           }}
         />
-        <title>Document</title>
+        <title>Enjoy socks</title>
       </head>
       <body>
         <div id="root">{children}</div>
