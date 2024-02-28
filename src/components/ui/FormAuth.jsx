@@ -1,33 +1,46 @@
-import React from 'react'
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 export default function FormAuth() {
   return (
-    <h1>ВХОД В ЛИЧНЫЙ КАБИНЕТ</h1>
-    <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
-      </Form.Group>
+    <div style={{ display: 'flex', justifyContent: 'space-between', margin: 'auto' }}>
+      <Form style={{ color: 'black' }}>
+        <h3 style={{ marginLeft: '250px' }}>ВХОД В ЛИЧНЫЙ КАБИНЕТ</h3>
+        <h5>ВХОД</h5>
+        <Form.Group className="mb-3" controlId="formBasicEmail" style={{ width: '300px' }}>
+          <Form.Label>E-mail</Form.Label>
+          <Form.Control type="email" placeholder="E-mail" />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword" style={{ width: '300px' }}>
+          <Form.Label>Пароль</Form.Label>
+          <Form.Control type="password" placeholder="Пароль" style={{ outline: 'none' }} />
+        </Form.Group>
+        <Button variant="dark" type="submit" style={{ width: '250px', height: '40px' }}>
+          ВОЙТИ
+        </Button>
+      </Form>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
+      <Form style={{ color: 'black', marginTop: '40px' }}>
+        <h5>Регистрация</h5>
+        <Form.Group className="mb-3" controlId="formBasicEmail" style={{ width: '300px' }}>
+          <Form.Label>E-mail</Form.Label>
+          <Form.Control type="email" placeholder="E-mail" />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicEmail" style={{ width: '300px' }}>
+          <Form.Label>Имя</Form.Label>
+          <Form.Control type="email" placeholder="Ваше Имя" />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword" style={{ width: '300px' }}>
+          <Form.Label>Пароль</Form.Label>
+          <Form.Control type="password" placeholder="Пароль" style={{ outline: 'none' }} />
+        </Form.Group>
+        <Button variant="dark" type="submit" style={{ width: '250px', height: '40px' }}>
+          ЗАРЕГИСТРИРОВАТЬСЯ
+        </Button>
+      </Form>
+    </div>
   );
-}
-
-export default BasicExample;
-  )
 }
