@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import 'dotenv/config';
 import jsxRender from './utils/jsxRender';
 import indexRouter from './routes/indexRouter';
+import apiAuthRouter from './routes/apiAuthRouter';
 import apiChangeRouter from './routes/apiChangeRouter';
 import resLocals from './middlewares/resLocals';
 
@@ -23,7 +24,7 @@ app.use(cookieParser());
 app.use(resLocals);
 
 app.use('/', indexRouter);
-app.use('/api/change', apiChangeRouter);
 app.use('/api/auth', apiAuthRouter);
+app.use('/api/change', apiChangeRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));
