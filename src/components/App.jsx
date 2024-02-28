@@ -5,15 +5,16 @@ import Footer from './ui/Footer';
 
 export default function App({ children }) {
   return (
-    <Container>
-      <Row className="justify-content-center">
-        <Col xs={12}>
-          <NavBar />
-        </Col>
-        <Col xs={10}>{children}</Col>
-      </Row>
+    <>
+      <NavBar />
+      <Container>
+        <Row className="justify-content-center">
+          <Col xs={12}>
+            {children}
+          </Col>
+        </Row>
+      </Container>
       <Footer />
-    </Container>
-
+    </>
   );
 }

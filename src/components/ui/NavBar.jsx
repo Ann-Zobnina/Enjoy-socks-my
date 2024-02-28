@@ -4,11 +4,10 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { FaShoppingCart, FaHeart, FaSignInAlt } from 'react-icons/fa';
 
-
 export default function NavBar() {
   return (
     <Navbar bg="light" data-bs-theme="light">
-      <Container>
+      <Container fluid>
         <img
           src="img/лого.svg"
           width="30"
@@ -21,7 +20,6 @@ export default function NavBar() {
           <Nav.Link href="/"><FaSignInAlt /></Nav.Link>
           <Nav.Link href="#features"><FaShoppingCart /></Nav.Link>
           <Nav.Link href="#pricing"><FaHeart /></Nav.Link>
-
         </Nav>
       </Container>
     </Navbar>

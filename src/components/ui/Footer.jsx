@@ -4,7 +4,7 @@ import { FaPhone, FaEnvelope, FaHome } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="text-center text-lg-start bg-body-tertiary text-muted mt-5">
+    <footer className="text-center text-lg-start bg-body-tertiary text-muted" style={{ marginTop: '170px' }}>
       <Container>
         <div className="py-4">
           <h6 className="text-uppercase fw-bold mb-4">CONTACT</h6>
