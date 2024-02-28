@@ -10,7 +10,24 @@ apiChangeRouter.route('/:id/cart')
     const socksInCart = socks.get();
     res.json(socksInCart);
   })
-  .post()
+  .post(verifyAccessToken, async (req, res) => {
+    const { color, decor, pic } = req.body;
+    try {
+      if (!color || !decor || !pic) throw new Error('Не все поля заполнены!');
+      const [targetSock, created] = await Sock.findOrCreate({
+        where: { color, decor, pic },
+        defaults: { color, decor, pic },
+      });
+      if (!created) {
+        await Sock.update({ color }, { where: { id: targetSock.id } });
+      }
+
+      const sock = targetSock.get();
+      res.json(sock);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  })
   .delete(verifyAccessToken, async (req, res) => {
     try {
       await Cart.destroy({
