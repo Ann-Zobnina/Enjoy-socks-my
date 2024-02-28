@@ -2,6 +2,8 @@ import React from 'react';
 
 export default function Footer() {
   return (
+    <footer class="text-center text-lg-start bg-body-tertiary text-muted">
+
     <div>
       <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
       <p>
@@ -20,5 +22,6 @@ export default function Footer() {
       </p>
 
     </div>
+    </footer>
   );
 }
