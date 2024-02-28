@@ -6,6 +6,10 @@ import cookiesConfig from '../config/cookiesConfig';
 
 const apiAuthRouter = Router();
 
+apiAuthRouter.get('/', async (req, res) => {
+  res.render('FormAuth');
+});
+
 apiAuthRouter.post('/signup', async (req, res) => {
   const { name, email, password } = req.body;
   try {

@@ -16,7 +16,7 @@ export default function NavBar() {
         />
         <Navbar.Brand href="#home">Enjoy socks</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="#home">SignUp/Login</Nav.Link>
+          <Nav.Link href="/">SignUp/Login</Nav.Link>
           <Nav.Link href="#features">🗑</Nav.Link>
           <Nav.Link href="#pricing">❤️</Nav.Link>
 
