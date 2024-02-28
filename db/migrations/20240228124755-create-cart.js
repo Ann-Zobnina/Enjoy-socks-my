@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       userId: {
-         allowNull: false,
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',
@@ -18,7 +18,7 @@ module.exports = {
         onDelete: 'CASCADE',
       },
       sockId: {
-         allowNull: false,
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'Socks',
@@ -27,7 +27,7 @@ module.exports = {
         onDelete: 'CASCADE',
       },
       count: {
-         allowNull: false,
+        allowNull: false,
         type: Sequelize.INTEGER,
       },
       createdAt: {
