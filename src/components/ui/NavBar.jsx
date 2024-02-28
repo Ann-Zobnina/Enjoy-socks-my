@@ -2,6 +2,8 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { FaShoppingCart, FaHeart, FaSignInAlt } from 'react-icons/fa';
+
 
 export default function NavBar() {
   return (
@@ -16,9 +18,9 @@ export default function NavBar() {
         />
         <Navbar.Brand href="#home">Enjoy socks</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="/">SignUp/Login</Nav.Link>
-          <Nav.Link href="#features">🗑</Nav.Link>
-          <Nav.Link href="#pricing">❤️</Nav.Link>
+          <Nav.Link href="/"><FaSignInAlt /></Nav.Link>
+          <Nav.Link href="#features"><FaShoppingCart /></Nav.Link>
+          <Nav.Link href="#pricing"><FaHeart /></Nav.Link>
 
         </Nav>
       </Container>

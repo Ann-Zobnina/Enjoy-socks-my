@@ -9,11 +9,11 @@ export default function App({ children }) {
       <Row className="justify-content-center">
         <Col xs={12}>
           <NavBar />
-          <Footer />
         </Col>
         <Col xs={10}>{children}</Col>
       </Row>
+      <Footer />
     </Container>
-    
+
   );
 }
