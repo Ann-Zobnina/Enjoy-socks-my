@@ -1,7 +1,25 @@
+<<<<<<< HEAD
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import NavBar from './ui/NavBar';
 
+=======
+// import React from 'react';
+// import NavBar from './ui/NavBar';
+
+// export default function App({ children }) {
+//   return (
+//     <div>
+//       {children}
+//       <NavBar />
+//     </div>
+//   );
+// }
+import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import NavBar from './ui/NavBar';
+
+>>>>>>> dev
 export default function App({ children, user, users }) {
   return (
     <Container>
@@ -13,4 +31,8 @@ export default function App({ children, user, users }) {
       </Row>
     </Container>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> dev
