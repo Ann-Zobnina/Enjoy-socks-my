@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function IndexPage({ hello }) {
+export default function Page({ hello }) {
   return <div>Hello, {hello}</div>;
 }
