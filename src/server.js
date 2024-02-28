@@ -21,7 +21,7 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
-app.use(resLocals);
+app.use(resLocals); //
 
 app.use('/', indexRouter);
 app.use('/api/change', apiChangeRouter);
