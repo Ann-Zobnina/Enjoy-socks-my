@@ -33,9 +33,9 @@ export default function FormAuth() {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', margin: 'auto' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-evenly', margin: 'auto' }}>
       <Form onSubmit={submitHandlerLogin} style={{ color: 'black' }}>
-        <h3 style={{ marginLeft: '340px' }}>ВХОД В ЛИЧНЫЙ КАБИНЕТ</h3>
+        <h3 style={{ marginLeft: '403.5px' }}>ВХОД В ЛИЧНЫЙ КАБИНЕТ</h3>
         <h5>ВХОД</h5>
         <Form.Group className="mb-3" controlId="formBasicEmail" style={{ width: '300px' }}>
           <Form.Label>E-mail</Form.Label>
