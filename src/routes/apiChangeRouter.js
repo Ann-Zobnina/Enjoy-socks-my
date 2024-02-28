@@ -10,6 +10,7 @@ apiChangeRouter.route('/:id/cart')
     const socksInCart = socks.get();
     res.json(socksInCart);
   })
+  .post()
   .delete(verifyAccessToken, async (req, res) => {
     try {
       await Cart.destroy({

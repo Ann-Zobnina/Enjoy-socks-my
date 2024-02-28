@@ -10,7 +10,7 @@ module.exports = {
       },
       color: {
         allowNull: false,
-        type: Sequelize.ENUM,
+        type: Sequelize.ENUM(['белый', 'желтый', 'фиолетовый', 'розовый', 'салатовый', 'голубой']),
       },
       pic: {
         allowNull: false,
