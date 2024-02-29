@@ -104,9 +104,7 @@ export default function FormAuth() {
             <Form.Control onChange={changeHandler} name="password" type="password" placeholder="Пароль" style={{ ...inputStyle, height: '42.5px' }} />
             <Form.Text id="passwordHelpBlock" muted>
               Пароль должен быть от 8 символов, при этом
-              {' '}
               <br />
-              {' '}
               содержать специальный символ и  не
               <br />
               содержать пробелы
