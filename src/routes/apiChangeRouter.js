@@ -12,8 +12,12 @@ apiChangeRouter.route('/cart')
     try {
       if (!color || !decor || !pic) throw new Error('Не все поля заполнены!');
       const [targetSock, created] = await Sock.findOrCreate({
-        where: { color, decor, pic },
-        defaults: { color, decor, pic },
+        where: {
+          color, decor, pic, userId: res.locals?.user?.id,
+        },
+        defaults: {
+          color, decor, pic, userId: res.locals?.user?.id,
+        },
       });
       if (!created) {
         await Sock.update({ color }, { where: { id: targetSock.id } });
