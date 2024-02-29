@@ -110,8 +110,37 @@ export default function FormSetting({
         Цена́++
       </h4>
       <hr />
-      <Button>Add to Basket</Button>
-      <Button>Wounded</Button>
+      <div style={{ display: 'flex' }}>
+        <h4 style={{ marginLeft: '10px' }}>Add to Basket</h4>
+        <h4 style={{ marginLeft: '100px' }}> Favorites</h4>
+      </div>
+      <Button
+        style={{
+          backgroundImage: 'linear-gradient(to right, #c0392b 0%, #8e44ad  51%, #c0392b  100%)',
+          padding: '20px 80px',
+          textAlign: 'center',
+          color: 'white',
+          border: 'none',
+          cursor: 'pointer',
+          borderRadius: '10px',
+        }}
+      >
+        🗑
+      </Button>
+      <Button
+        style={{
+          backgroundImage: 'linear-gradient(to right, #c0392b 0%, #8e44ad  51%, #c0392b  100%)',
+          padding: '20px 80px',
+          textAlign: 'center',
+          color: 'white',
+          border: 'none',
+          cursor: 'pointer',
+          borderRadius: '10px',
+          marginLeft: '40px',
+        }}
+      >
+        🔖
+      </Button>
     </>
   );
 }

@@ -7,7 +7,7 @@ export default function Svg({ setColor }) {
         version="1.0"
         xmlns="http://www.w3.org/2000/svg"
         width="1000px"
-        height="1000px"
+        height="1100px"
         viewBox="0 0 900.000000 900.000000"
         preserveAspectRatio="xMidYMid meet"
       >
