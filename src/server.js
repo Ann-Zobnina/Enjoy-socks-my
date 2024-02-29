@@ -8,10 +8,7 @@ import indexRouter from './routes/indexRouter';
 import apiAuthRouter from './routes/apiAuthRouter';
 import apiChangeRouter from './routes/apiChangeRouter';
 import resLocals from './middlewares/resLocals';
-import cartRouter from './routes/cartRouter';
-
 import apiSignUp from './routes/apiAuthRouter';
-
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -30,6 +27,5 @@ app.use(resLocals); //
 app.use('/', indexRouter);
 app.use('/api/auth', apiAuthRouter);
 app.use('/api/change', apiChangeRouter);
-app.use('/render', cartRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));
