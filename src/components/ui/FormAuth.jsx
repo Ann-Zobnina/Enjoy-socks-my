@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -10,6 +10,17 @@ export default function FormAuth() {
     outline: 'none',
     border: '1px solid #ced4da',
     boxShadow: 'none',
+  };
+
+  const [value, setInput] = useState({
+    password: '',
+    user: '',
+  });
+
+  const changeHandler = (elem) => {
+    setInput((prev) => ({
+      ...prev, [elem.target.name]: elem.target.value,
+    }));
   };
 
   const submitHandlerLogin = async (event) => {
