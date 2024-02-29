@@ -1,13 +1,21 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 
 export default function MainPage() {
+  const onClickHandler = () => {
+    window.location = '/generate';
+  };
+
   return (
-    <div>
-      <Container>
-        <h1>Enjoy socks</h1>
+    <Container>
+      <div style={{
+        minHeight: '400px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
+      }}
+      >
+        <h1 style={{ textAlign: 'center' }}>Enjoy socks</h1>
         <p>Самое время быть уникальным! Смоделируй свою любимую пару носков!</p>
-      </Container>
-    </div>
+        <Button onClick={onClickHandler}>Сгенерировать</Button>
+      </div>
+    </Container>
   );
 }

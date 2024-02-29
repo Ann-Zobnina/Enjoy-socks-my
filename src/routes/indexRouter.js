@@ -6,6 +6,10 @@ import { Sock, Cart } from '../../db/models';
 const router = express.Router();
 
 router.get('/', (req, res) => {
+  res.render('MainPage');
+});
+
+router.get('/generate', (req, res) => {
   res.render('FormGenerate');
 });
 
