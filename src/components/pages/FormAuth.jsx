@@ -113,7 +113,7 @@ export default function FormAuth() {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Подтвердите пароль</Form.Label>
-          <Form.Control value={value.password} type="password" placeholder="Подтвердите пароль" style={{ ...inputStyle, height: '42.5px', color: validPassword(value.password) ? 'green' : 'red' }} />
+          <Form.Control value={value.password} onChange={changeHandler} type="password" placeholder="Подтвердите пароль" style={{ ...inputStyle, height: '42.5px', color: validPassword(value.password) ? 'green' : 'red' }} />
         </Form.Group>
         {validPassword(value.password) && validUsername(value.name) && validEmail(value.email)
           ? (
