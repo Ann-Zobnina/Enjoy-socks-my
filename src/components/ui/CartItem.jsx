@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Cart({ item, deleteHandler }) {
+export default function CartItem({ item, deleteHandler }) {
   return (
     <div className="card mb-3" style={{ maxWidth: '540px' }}>
       <div className="row g-0">
