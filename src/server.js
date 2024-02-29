@@ -8,6 +8,7 @@ import indexRouter from './routes/indexRouter';
 import apiAuthRouter from './routes/apiAuthRouter';
 import apiChangeRouter from './routes/apiChangeRouter';
 import resLocals from './middlewares/resLocals';
+import apiSignUp from './routes/apiAuthRouter';
 
 const PORT = process.env.PORT || 3000;
 const app = express();

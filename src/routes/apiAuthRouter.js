@@ -4,16 +4,16 @@ import { User } from '../../db/models';
 import generateTokens from '../utils/generateTokens';
 import cookiesConfig from '../config/cookiesConfig';
 
-const apiAuthRouter = Router();
+const apiSignUp = Router();
 
-apiAuthRouter.get('/login', async (req, res) => {
+apiSignUp.get('/login', async (req, res) => {
   res.render('FormAuth');
 });
 
-apiAuthRouter.post('/signup', async (req, res) => {
+apiSignUp.post('/signup', async (req, res) => {
   const { name, email, password } = req.body;
   try {
-    if (!name || !email || !password) throw new Error('Не все поля заполнены!');
+    if (!name || !email || !password) return res.status(400).json({ message: 'Не все поля заполнены' });
     const [targetUser, created] = await User.findOrCreate({
       where: { email },
       defaults: { name, email, hashpass: await bcrypt.hash(password, 10) },
@@ -33,7 +33,7 @@ apiAuthRouter.post('/signup', async (req, res) => {
   }
 });
 
-apiAuthRouter.post('/login', async (req, res) => {
+apiSignUp.post('/login', async (req, res) => {
   const { email, password } = req.body;
   try {
     if (!email) throw new Error('Email is required');
@@ -58,10 +58,4 @@ apiAuthRouter.post('/login', async (req, res) => {
     .sendStatus(200);
 });
 
-apiAuthRouter.get('/logout', (req, res) => {
-  res.clearCookie('accessToken')
-    .clearCookie('refreshToken')
-    .redirect('/');
-});
-
-export default apiAuthRouter;
+export default apiSignUp;
