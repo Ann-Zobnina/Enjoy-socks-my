@@ -17,8 +17,8 @@ export default function NavBar() {
         />
         <Navbar.Brand href="/" style={{ marginLeft: '20px' }}>Enjoy socks</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="/api/auth/bin" style={{ marginLeft: '850px', marginRight: '35px' }}><FaShoppingCart /></Nav.Link>
-          <Nav.Link href="/api/auth/favorite" style={{ marginRight: '35px' }}><FaHeart /></Nav.Link>
+          <Nav.Link href="/render/cart" style={{ marginLeft: '850px', marginRight: '35px' }}><FaShoppingCart /></Nav.Link>
+          <Nav.Link href="/render/favorite" style={{ marginRight: '35px' }}><FaHeart /></Nav.Link>
           <Nav.Link href="/api/auth/login" style={{ marginRight: '5px' }}>
             <FaSignInAlt />
           </Nav.Link>
