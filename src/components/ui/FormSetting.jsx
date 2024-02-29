@@ -27,7 +27,7 @@ export default function FormSetting({
         <h4>Change++</h4>
         <div className="tshirt color">
           <img
-            onClick={() => handleImageClick2('img/1.png')}
+            onClick={() => handleImageClick2('img/2.png')}
             src="img/1.png"
             width="150"
             height="150"
