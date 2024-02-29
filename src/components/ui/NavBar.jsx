@@ -29,6 +29,9 @@ export default function NavBar({ user }) {
         )}
         <Nav className="me-auto">
           <Nav.Link href="#features" style={{ marginRight: '35px' }}>
+          <Nav.Link href="/render/cart" style={{ marginLeft: '850px', marginRight: '35px' }}><FaShoppingCart /></Nav.Link>
+          <Nav.Link href="/render/favorite" style={{ marginRight: '35px' }}><FaHeart /></Nav.Link>
+          <Nav.Link href="#features" style={{ marginLeft: '850px', marginRight: '35px' }}>
             <FaShoppingCart />
           </Nav.Link>
           <Nav.Link href="#pricing" style={{ marginRight: '35px' }}>
