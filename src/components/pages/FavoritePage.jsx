@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import Favorite from '../ui/Favorite';
+import axios from 'axios';
+import Favorite from '../ui/FavoriteItem';
 
-export default function FavoritePage({ favItems }) {
-  const [items, setItems] = useState(favItems);
+export default function FavoritePage({ socks }) {
+  const [items, setItems] = useState(socks);
 
   const deleteHandler = async (favItemId) => {
-    const url = `/api/change/${favItemId}/favorites`;
-    const response = await fetch(url, { method: 'DELETE' });
+    const response = await axios.put('/api/change/favorites', favItemId);
     if (response.status === 200) {
       setItems((prev) => prev.filter((el) => el.id !== favItemId));
     } else if (response.status === 500) {
