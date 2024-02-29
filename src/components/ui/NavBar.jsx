@@ -17,9 +17,11 @@ export default function NavBar({ user }) {
           className="d-inline-block align-top"
           alt="React Bootstrap logo"
         />
-        <Navbar.Brand href="/" style={{ marginLeft: '20px' }}>
-          Enjoy socks
-        </Navbar.Brand>
+        <div>
+          <Navbar.Brand href="/">
+            Enjoy socks
+          </Navbar.Brand>
+        </div>
         {user ? (
           <>
             <div style={{ marginLeft: '720px' }}>{user.name}</div>
@@ -33,7 +35,7 @@ export default function NavBar({ user }) {
           </>
         ) : (
           <>
-            <Nav.Link href="/login" style={{ marginLeft: '720px' }}>
+            <Nav.Link href="/login" style={{ marginLeft: '680px' }}>
               Войти
             </Nav.Link>
             <Nav.Link href="/render/cart"><FaShoppingCart /></Nav.Link>
