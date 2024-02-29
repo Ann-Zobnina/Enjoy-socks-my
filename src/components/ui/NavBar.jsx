@@ -8,7 +8,16 @@ import {
 
 export default function NavBar({ user }) {
   return (
-    <Navbar bg="light" data-bs-theme="light" style={{ fontSize: '25.6px' }}>
+    <Navbar
+      bg="dark"
+      data-bs-theme="dark"
+      style={{
+        backgroundColor: '#474A51',
+        fontSize: '39px',
+        fontFamily: '"Caveat", cursive',
+        color: 'white',
+      }}
+    >
       <Container>
         <img
           src="img/logo.svg"
@@ -18,7 +27,13 @@ export default function NavBar({ user }) {
           alt="React Bootstrap logo"
         />
         <div>
-          <Navbar.Brand href="/">
+          <Navbar.Brand
+            href="/"
+            style={{
+              fontSize: '39px',
+              fontFamily: '"Caveat", cursive',
+            }}
+          >
             Enjoy socks
           </Navbar.Brand>
         </div>
@@ -38,7 +53,7 @@ export default function NavBar({ user }) {
             <Nav.Link href="/login" style={{ marginLeft: '885px' }}>
               Войти
             </Nav.Link>
-            <Nav.Link href="/cart"><FaShoppingCart /></Nav.Link>
+            <Nav.Link href="/render/cart" style={{ color: 'white' }}><FaShoppingCart /></Nav.Link>
           </>
         )}
       </Container>

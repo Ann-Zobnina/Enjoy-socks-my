@@ -103,11 +103,11 @@ export default function FormAuth() {
             <Form.Label>Пароль</Form.Label>
             <Form.Control onChange={changeHandler} name="password" type="password" placeholder="Пароль" style={{ ...inputStyle, height: '42.5px' }} />
             <Form.Text id="passwordHelpBlock" muted>
-              Пароль должен быть от 12 символов, при этом
-              {' '}
+              Пароль должен быть от 8 символов, при этом
               <br />
-              {' '}
-              не содержать пробелы и специальные символы
+              содержать специальный символ и  не
+              <br />
+              содержать пробелы
             </Form.Text>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
