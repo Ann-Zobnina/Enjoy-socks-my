@@ -59,7 +59,7 @@ export default function FormAuth() {
 
   return (
     <Container style={{
-      display: 'flex',
+      // display: 'flex',
       justifyContent: 'space-evenly',
       margin: 'auto',
       marginTop: '40px',
