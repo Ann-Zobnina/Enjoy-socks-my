@@ -44,7 +44,7 @@ apiChangeRouter.route('/cart')
   });
 
 // Favorites
-apiChangeRouter.put('/favorites', verifyAccessToken, async (req, res) => {
+apiChangeRouter.put('/favorite', verifyAccessToken, async (req, res) => {
   try {
     await Sock.update({ favorite: req.body.favorite }, { where: { id: req.body.id } });
     res.sendStatus(200);
