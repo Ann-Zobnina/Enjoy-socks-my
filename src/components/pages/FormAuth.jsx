@@ -36,7 +36,6 @@ export default function FormAuth() {
       if (response.status === 200) {
         window.location = '/';
       }
-      alert('Вы успешно залогинились'); // test что воркает
     } catch (error) {
       throw new Error(error.response.data.message);
     }
