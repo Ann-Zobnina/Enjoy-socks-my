@@ -92,7 +92,7 @@ export default function FormAuth() {
           <Form.Label>Имя</Form.Label>
           <Form.Control value={value.name} onChange={changeHandler} name="name" type="text" placeholder="Ваше Имя" style={{ ...inputStyle }} />
           <Form.Text id="passwordHelpBlock" muted>
-            Имя должно быть от 5 символов, при этом
+            Имя должно быть от 3 символов, при этом
             {' '}
             <br />
             {' '}
