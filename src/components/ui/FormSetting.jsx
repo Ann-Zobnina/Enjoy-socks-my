@@ -125,7 +125,7 @@ export default function FormSetting({
           borderRadius: '10px',
         }}
       >
-        🗑
+        🛒
       </Button>
       <Button
         style={{
