@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import FavoriteItem from '../ui/FavoriteItem';
 
 export default function FavoritePage({ socks }) {
