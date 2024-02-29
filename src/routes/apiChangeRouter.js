@@ -12,8 +12,12 @@ apiChangeRouter.route('/cart')
     try {
       if (!color || !decor || !pic) throw new Error('Не все поля заполнены!');
       const [targetSock, created] = await Sock.findOrCreate({
-        where: { color, decor, pic },
-        defaults: { color, decor, pic },
+        where: {
+          color, decor, pic, userId: res.locals?.user?.id,
+        },
+        defaults: {
+          color, decor, pic, userId: res.locals?.user?.id,
+        },
       });
       if (!created) {
         await Sock.update({ color }, { where: { id: targetSock.id } });
@@ -42,12 +46,7 @@ apiChangeRouter.route('/cart')
 // Favorites
 apiChangeRouter.put('/favorites', verifyAccessToken, async (req, res) => {
   try {
-    await Sock.update(req.body, {
-      where: {
-        userId: res.locals?.user?.id,
-        id: req.body.id,
-      },
-    });
+    await Sock.update({ favorite: req.body.favorite }, { where: { id: req.body.id } });
     res.sendStatus(200);
   } catch (err) {
     res.status(500).json(err.message);

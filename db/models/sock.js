@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     color: DataTypes.ENUM(['белый', 'желтый', 'фиолетовый', 'розовый', 'салатовый', 'голубой']),
     pic: DataTypes.STRING,
     decor: DataTypes.STRING,
+    favorite: DataTypes.BOOLEAN,
   }, {
     sequelize,
     modelName: 'Sock',

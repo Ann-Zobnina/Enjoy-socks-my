@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
 
-export default function FormSetting({ socksColors, setColor: setParentColor, handleImageClick }) {
+export default function FormSetting({
+  socksColors,
+  setColor: setParentColor,
+  handleImageClick,
+  handleImageClick2,
+}) {
   const [currentColor, setColor] = useState(socksColors);
 
   const handleColorChange = (newColor) => {
     setColor(newColor);
     setParentColor(newColor); // Обновляем цвет в родительском компоненте
   };
+
   return (
     <>
       <div className="card card-light container">
@@ -14,7 +21,7 @@ export default function FormSetting({ socksColors, setColor: setParentColor, han
         <h4>Change++</h4>
         <div className="tshirt color">
           <img
-            onClick={() => handleImageClick('img/1.png')}
+            onClick={() => handleImageClick2('img/1.png')}
             src="img/1.png"
             width="150"
             height="150"
@@ -22,21 +29,21 @@ export default function FormSetting({ socksColors, setColor: setParentColor, han
             id="cubes"
           />
           <img
-            onClick={() => handleImageClick('img/2.png')}
+            onClick={() => handleImageClick2('img/2.png')}
             src="img/2.png"
             width="150"
             height="150"
             alt="black-dots"
           />
           <img
-            onClick={() => handleImageClick('img/3.png')}
+            onClick={() => handleImageClick2('img/3.png')}
             src="img/3.png"
             width="150"
             height="150"
             alt="black-sky"
           />
           <img
-            onClick={() => handleImageClick('img/4.png')}
+            onClick={() => handleImageClick2('img/4.png')}
             src="img/4.png"
             width="150"
             height="150"
@@ -74,10 +81,10 @@ export default function FormSetting({ socksColors, setColor: setParentColor, han
         </div>
         <hr />
         <h4>Logo Size</h4>
-        <input type="range" min="0" max="100" />
+        <Form.Control type="range" min="0" max="100" />
         <hr />
         <h4>Change++</h4>
-        <select
+        <Form.Select
           className="form-control form-control-sm mb-2"
           onChange={(e) => handleColorChange(e.target.value)}
           value={currentColor}
@@ -85,13 +92,14 @@ export default function FormSetting({ socksColors, setColor: setParentColor, han
           <option value="grey">Grey</option>
           <option value="blue">Blue</option>
           <option value="red">Red</option>
-          {/* <option value="white">White</option> */}
+          <option value="white">White</option>
           <option value="black">Black</option>
-        </select>
+        </Form.Select>
       </div>
       <h4>Цена́++</h4>
       <hr />
-      <button>Сформировать заказ</button>
+      <Button>Add to Basket</Button>
+      <Button>Wounded</Button>
     </>
   );
 }

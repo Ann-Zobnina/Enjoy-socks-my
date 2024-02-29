@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
-import Favorite from '../ui/Favorite';
+import FavoriteItem from '../ui/FavoriteItem';
 
-export default function FavoritePage({ favItems }) {
-  const [items, setItems] = useState(favItems);
+export default function FavoritePage({ socks }) {
+  const [items, setItems] = useState(socks);
 
   const deleteHandler = async (favItemId) => {
-    const url = `/api/change/${favItemId}/favorites`;
-    const response = await fetch(url, { method: 'DELETE' });
+    const response = await fetch('/api/change/favorites', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: {
+        id: favItemId,
+        favorite: false,
+      },
+    });
     if (response.status === 200) {
       setItems((prev) => prev.filter((el) => el.id !== favItemId));
     } else if (response.status === 500) {
-      const message = await response.json();
+      const message = await response.data.json();
       console.log(message);
     }
   };
@@ -31,7 +39,7 @@ export default function FavoritePage({ favItems }) {
                   display: 'flex', marginBottom: '50px',
                 }}
               >
-                <Favorite fav={fav} deleteHandler={deleteHandler} />
+                <FavoriteItem fav={fav} deleteHandler={deleteHandler} />
               </div>
             ))}
 
