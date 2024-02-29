@@ -44,13 +44,16 @@ apiAuthRouter.post('/login', async (req, res) => {
   const passwordIsCorrect = await bcrypt.compare(password, targetUser.hashpass);
   if (!passwordIsCorrect) return res.status(403).json({ message: 'Incorrect password' });
 
-  const user = targetUser.get();
-  delete user.hashpass;
+    const user = targetUser.get();
+    delete user.hashpass;
 
-  const { accessToken, refreshToken } = generateTokens({ user });
-  res.cookie('accessToken', accessToken, cookiesConfig.access)
-    .cookie('refreshToken', refreshToken, cookiesConfig.refresh)
-    .sendStatus(200);
+    const { accessToken, refreshToken } = generateTokens({ user });
+    res.cookie('accessToken', accessToken, cookiesConfig.access)
+      .cookie('refreshToken', refreshToken, cookiesConfig.refresh)
+      .sendStatus(200);
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
 });
 
 apiAuthRouter.get('/logout', (req, res) => {

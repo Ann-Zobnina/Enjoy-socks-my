@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import NavBar from './ui/NavBar';
 import Footer from './ui/Footer';
 
-export default function App({ children, user}) {
+export default function App({ children, user }) {
   return (
     <>
       <NavBar user={user} />
