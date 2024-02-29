@@ -6,7 +6,7 @@ import cookiesConfig from '../config/cookiesConfig';
 
 const apiAuthRouter = Router();
 
-apiAuthRouter.get('/', async (req, res) => {
+apiAuthRouter.get('/login', async (req, res) => {
   res.render('FormAuth');
 });
 
