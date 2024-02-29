@@ -19,7 +19,6 @@ export default function FormGenerate({ socksColors }) {
     setColor(newColor);
   };
 
-
   return (
     <div className="container py-5">
       <div className="row">
