@@ -36,26 +36,26 @@ apiSignUp.post('/signup', async (req, res) => {
 apiSignUp.post('/login', async (req, res) => {
   const { email, password } = req.body;
   try {
+    const targetUser = await User.findOne({
+      where: { email },
+    });
     if (!email) throw new Error('Email is required');
     if (!password) throw new Error('Password is required');
+
+    if (!targetUser) return res.json({ message: 'User not found' });
+    const passwordIsCorrect = await bcrypt.compare(password, targetUser.hashpass);
+    if (!passwordIsCorrect) return res.status(403).json({ message: 'Incorrect password' });
+
+    const user = targetUser.get();
+    delete user.hashpass;
+
+    const { accessToken, refreshToken } = generateTokens({ user });
+    res.cookie('accessToken', accessToken, cookiesConfig.access)
+      .cookie('refreshToken', refreshToken, cookiesConfig.refresh)
+      .sendStatus(200);
   } catch (err) {
     res.status(404).json({ message: err.message });
   }
-
-  const targetUser = await User.findOne({
-    where: { email },
-  });
-  if (!targetUser) return res.json({ message: 'User not found' });
-  const passwordIsCorrect = await bcrypt.compare(password, targetUser.hashpass);
-  if (!passwordIsCorrect) return res.status(403).json({ message: 'Incorrect password' });
-
-  const user = targetUser.get();
-  delete user.hashpass;
-
-  const { accessToken, refreshToken } = generateTokens({ user });
-  res.cookie('accessToken', accessToken, cookiesConfig.access)
-    .cookie('refreshToken', refreshToken, cookiesConfig.refresh)
-    .sendStatus(200);
 });
 
 export default apiSignUp;
