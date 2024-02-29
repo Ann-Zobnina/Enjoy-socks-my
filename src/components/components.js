@@ -1,10 +1,10 @@
-import Page from './pages/Page';
+import FormGenerate from './pages/FormGenerate';
 import FormAuth from './pages/FormAuth';
 import CartPage from './pages/CartPage';
 import FavoritePage from './pages/FavoritePage';
 
 const components = {
-  Page,
+  FormGenerate,
   FormAuth,
   CartPage,
   FavoritePage,
