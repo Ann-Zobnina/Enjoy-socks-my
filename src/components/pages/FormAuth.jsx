@@ -45,11 +45,13 @@ export default function FormAuth() {
     event.preventDefault();
     try {
       const formData = Object.fromEntries(new FormData(event.target));
-      const response = await axios.post('api/auth/signup', formData);
+      console.log(formData);
+      const response = await axios.post('/api/auth/signup', formData);
       if (response.status === 200) {
-        alert('Вы успешно зарегистрировались'); // test что воркает //aaaddd
         window.location = '/';
       }
+      alert('Вы успешно зарегистрировались');
+      event.target.reset();
     } catch (error) {
       throw new Error(error.response.data.message);
     }
@@ -88,25 +90,39 @@ export default function FormAuth() {
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Имя</Form.Label>
-          <Form.Control value={value.userName} onChange={changeHandler} name="userName" type="text" placeholder="Ваше Имя" style={{ ...inputStyle }} />
+          <Form.Control value={value.name} onChange={changeHandler} name="name" type="text" placeholder="Ваше Имя" style={{ ...inputStyle }} />
+          <Form.Text id="passwordHelpBlock" muted>
+            Имя должно быть от 5 символов, при этом
+            {' '}
+            <br />
+            {' '}
+            не содержать пробелы
+          </Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Пароль</Form.Label>
           <Form.Control onChange={changeHandler} name="password" type="password" placeholder="Пароль" style={{ ...inputStyle, height: '42.5px' }} />
+          <Form.Text id="passwordHelpBlock" muted>
+            Пароль должен быть от 12 символов, при этом
+            {' '}
+            <br />
+            {' '}
+            не содержать пробелы и специальные символы
+          </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Подтвердите пароль</Form.Label>
           <Form.Control value={value.password} type="password" placeholder="Подтвердите пароль" style={{ ...inputStyle, height: '42.5px', color: validPassword(value.password) ? 'green' : 'red' }} />
         </Form.Group>
-        {validPassword(value.password) && validUsername(value.userName) && validEmail(value.email)
+        {validPassword(value.password) && validUsername(value.name) && validEmail(value.email)
           ? (
             <Button variant="success" type="submit" style={{ width: '250px', height: '40px' }}>
               ЗАРЕГИСТРИРОВАТЬСЯ
             </Button>
           )
           : (
-            <Button variant="danger" type="submit" style={{ width: '250px', height: '40px' }}>
+            <Button variant="danger" type="submit" style={{ width: '250px', height: '40px' }} disabled>
               ЗАРЕГИСТРИРОВАТЬСЯ
             </Button>
           )}
@@ -114,6 +130,3 @@ export default function FormAuth() {
     </Container>
   );
 }
-
-// валидацию паролей мб сделать? это изи
-// хочу сделать упр инпуты чтобы пользователь собственно не мог вводить лишнюю инфу ( валидатион добавить)
