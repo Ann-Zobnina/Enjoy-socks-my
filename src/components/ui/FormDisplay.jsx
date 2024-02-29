@@ -13,9 +13,9 @@ export default function FormDisplay({ allColor, selectedImage, selectedImage2 })
           <img
             src={selectedImage}
             alt="Selected"
-            width="290"
-            height="290"
-            style={{ position: 'absolute', top: '-900px', left: '250px' }}
+            width="250"
+            height="250"
+            style={{ position: 'absolute', top: '-800px', left: '240px' }}
           />
         )}
 
@@ -25,7 +25,7 @@ export default function FormDisplay({ allColor, selectedImage, selectedImage2 })
             alt="Selected"
             width="682"
             height="850"
-            style={{ position: 'absolute', top: '-950px', left: '200px' }}
+            style={{ position: 'absolute', top: '-890px', left: '220px' }}
           />
         )}
       </Card>
