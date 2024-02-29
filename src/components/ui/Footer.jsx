@@ -6,7 +6,13 @@ export default function Footer() {
   const address = 'г. Москва, Шоссе Энтузиастов 12 ст2';
   const yandexMapsUrl = `https://yandex.ru/maps/?text=${encodeURIComponent(address)}`;
   return (
-    <footer className="text-center text-lg-start bg-body-tertiary text-muted" style={{ marginTop: '170px' }}>
+    <footer
+      className="text-center text-lg-start bg-body-tertiary text-muted"
+      data-bs-theme="dark"
+      style={{
+        backgroundColor: '#474A51',
+      }}
+    >
       <Container>
         <div className="py-4">
           <h6 className="text-uppercase fw-bold mb-4">CONTACT</h6>

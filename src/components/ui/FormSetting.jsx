@@ -16,7 +16,13 @@ export default function FormSetting({
 
   return (
     <>
-      <div className="card card-light container">
+      <div
+        className="card card-light container"
+        style={{
+          fontSize: '39px',
+          fontFamily: '"Caveat", cursive',
+        }}
+      >
         <h3 className="text-center">Settings</h3>
         <h4>Change++</h4>
         <div className="tshirt color">
@@ -96,7 +102,13 @@ export default function FormSetting({
           <option value="black">Black</option>
         </Form.Select>
       </div>
-      <h4>Цена́++</h4>
+      <h4 style={{
+        fontSize: '39px',
+        fontFamily: '"Caveat", cursive',
+      }}
+      >
+        Цена́++
+      </h4>
       <hr />
       <div style={{ display: 'flex' }}>
         <h4 style={{ marginLeft: '10px' }}>Add to Basket</h4>

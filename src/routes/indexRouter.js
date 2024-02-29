@@ -6,6 +6,10 @@ import { Sock, Cart } from '../../db/models';
 const router = express.Router();
 
 router.get('/', (req, res) => {
+  res.render('MainPage');
+});
+
+router.get('/generate', (req, res) => {
   res.render('FormGenerate');
 });
 
@@ -13,7 +17,7 @@ router.get('/login', async (req, res) => {
   res.render('FormAuth');
 });
 
-router.get('/cart', checkAuthFactory(true), async (req, res) => {
+router.get('/cart', async (req, res) => {
   try {
     const socks = await Cart.findAll({ where: { userId: res.locals?.user?.id } });
     res.render('CartPage', { socks });

@@ -8,25 +8,39 @@ import {
 
 export default function NavBar({ user }) {
   return (
-    <Navbar bg="light" data-bs-theme="light" style={{ fontSize: '25.6px' }}>
+    <Navbar
+      bg="dark"
+      data-bs-theme="dark"
+      style={{
+        backgroundColor: '#474A51',
+        fontSize: '39px',
+        fontFamily: '"Caveat", cursive',
+      }}
+    >
       <Container>
         <img
-          src="img/лого.svg"
+          src="img/logo.svg"
           width="30"
           height="30"
           className="d-inline-block align-top"
           alt="React Bootstrap logo"
         />
         <div>
-          <Navbar.Brand href="/">
+          <Navbar.Brand
+            href="/"
+            style={{
+              fontSize: '39px',
+              fontFamily: '"Caveat", cursive',
+            }}
+          >
             Enjoy socks
           </Navbar.Brand>
         </div>
         {user ? (
           <>
             <div style={{ marginLeft: '720px' }}>{user.name}</div>
-            <Nav.Link href="/render/cart"><FaShoppingCart /></Nav.Link>
-            <Nav.Link href="#pricing">
+            <Nav.Link href="/cart"><FaShoppingCart /></Nav.Link>
+            <Nav.Link href="/favorites">
               <FaHeart />
             </Nav.Link>
             <Nav.Link href="/api/auth/logout" style={{ marginRight: '5px' }}>
@@ -35,10 +49,12 @@ export default function NavBar({ user }) {
           </>
         ) : (
           <>
-            <Nav.Link href="/login" style={{ marginLeft: '680px' }}>
+            <Nav.Link href="/login" style={{ marginLeft: '885px' }}>
               Войти
             </Nav.Link>
-            <Nav.Link href="/render/cart"><FaShoppingCart /></Nav.Link>
+            <Nav.Link href="/render/cart" style={{ color: 'white' }}><FaShoppingCart /></Nav.Link>
+
+            <Nav.Link href="/cart"><FaShoppingCart /></Nav.Link>
           </>
         )}
       </Container>
