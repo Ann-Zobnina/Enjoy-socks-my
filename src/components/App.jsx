@@ -6,7 +6,7 @@ import Footer from './ui/Footer';
 export default function App({ children, user }) {
   return (
     <div style={{
-      height: '100vh', backgroundColor: 'white', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+      height: '100vh', backgroundColor: '#B0C4DE', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
     }}
     >
       <NavBar user={user} />
