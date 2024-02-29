@@ -36,7 +36,6 @@ export default function FormAuth() {
       if (response.status === 200) {
         window.location = '/';
       }
-      alert('Вы успешно залогинились'); // test что воркает
     } catch (error) {
       throw new Error(error.response.data.message);
     }
@@ -59,7 +58,7 @@ export default function FormAuth() {
 
   return (
     <Container style={{
-      // display: 'flex',
+      display: 'flex',
       justifyContent: 'space-evenly',
       margin: 'auto',
       marginTop: '40px',
@@ -92,7 +91,7 @@ export default function FormAuth() {
           <Form.Label>Имя</Form.Label>
           <Form.Control value={value.name} onChange={changeHandler} name="name" type="text" placeholder="Ваше Имя" style={{ ...inputStyle }} />
           <Form.Text id="passwordHelpBlock" muted>
-            Имя должно быть от 5 символов, при этом
+            Имя должно быть от 3 символов, при этом
             {' '}
             <br />
             {' '}
@@ -113,7 +112,7 @@ export default function FormAuth() {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Подтвердите пароль</Form.Label>
-          <Form.Control value={value.password} type="password" placeholder="Подтвердите пароль" style={{ ...inputStyle, height: '42.5px', color: validPassword(value.password) ? 'green' : 'red' }} />
+          <Form.Control value={value.password} onChange={changeHandler} type="password" placeholder="Подтвердите пароль" style={{ ...inputStyle, height: '42.5px', color: validPassword(value.password) ? 'green' : 'red' }} />
         </Form.Group>
         {validPassword(value.password) && validUsername(value.name) && validEmail(value.email)
           ? (
