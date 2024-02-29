@@ -7,7 +7,7 @@ const apiChangeRouter = Router();
 
 // Cart
 apiChangeRouter.route('/cart')
-  .post(verifyAccessToken, async (req, res) => {
+  .post(async (req, res) => {
     const { color, decor, pic } = req.body;
     try {
       if (!color || !decor || !pic) throw new Error('Не все поля заполнены!');
@@ -25,7 +25,7 @@ apiChangeRouter.route('/cart')
       res.status(500).json(err.message);
     }
   })
-  .delete(verifyAccessToken, async (req, res) => {
+  .delete(async (req, res) => {
     try {
       await Cart.destroy({
         where: {
