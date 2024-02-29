@@ -10,7 +10,6 @@ export default function App({ children, user }) {
     }}
     >
       <NavBar user={user} />
-      {/* <div style={{ backgroundColor: '#B0C4DE' }}> */}
       <Container>
         <Row className="justify-content-center">
           <Col xs={12}>
@@ -18,7 +17,6 @@ export default function App({ children, user }) {
           </Col>
         </Row>
       </Container>
-      {/* </div> */}
       <Footer />
     </div>
   );

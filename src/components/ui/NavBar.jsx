@@ -26,7 +26,7 @@ export default function NavBar({ user }) {
           <>
             <div style={{ marginLeft: '720px' }}>{user.name}</div>
             <Nav.Link href="/cart"><FaShoppingCart /></Nav.Link>
-            <Nav.Link href="/favorites">
+            <Nav.Link href="/favorite">
               <FaHeart />
             </Nav.Link>
             <Nav.Link href="/api/auth/logout" style={{ marginRight: '5px' }}>
