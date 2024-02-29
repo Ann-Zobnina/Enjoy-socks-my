@@ -1,7 +1,7 @@
 import React from 'react';
 import Svg from './Svg';
 
-export default function FormDisplay({ allColor, selectedImage }) {
+export default function FormDisplay({ allColor, selectedImage, selectedImage2 }) {
   return (
     <>
       <div className="card card-content">
@@ -18,6 +18,16 @@ export default function FormDisplay({ allColor, selectedImage }) {
               width="290"
               height="290"
               style={{ position: 'absolute', top: '-900px', left: '250px' }}
+            />
+          )}
+
+          {selectedImage2 && (
+            <img
+              src={selectedImage2}
+              alt="Selected"
+              width="682"
+              height="850"
+              style={{ position: 'absolute', top: '-950px', left: '200px' }}
             />
           )}
         </div>

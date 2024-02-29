@@ -31,11 +31,12 @@ export default function FormAuth() {
     event.preventDefault();
     try {
       const formData = Object.fromEntries(new FormData(event.target));
-      const response = await axios.post('api/auth/login', formData);
+      console.log(formData);
+      const response = await axios.post('/api/auth/login', formData);
       if (response.status === 200) {
-        alert('Вы успешно залогинились'); // test что воркает
         window.location = '/';
       }
+      alert('Вы успешно залогинились'); // test что воркает
     } catch (error) {
       throw new Error(error.response.data.message);
     }
@@ -48,10 +49,8 @@ export default function FormAuth() {
       console.log(formData);
       const response = await axios.post('/api/auth/signup', formData);
       if (response.status === 200) {
-        alert('Вы успешно зарегистрировались'); // test что воркает //aaaddd //
         window.location = '/';
       }
-      alert('Вы успешно зарегистрировались');
       event.target.reset();
     } catch (error) {
       throw new Error(error.response.data.message);
@@ -71,11 +70,11 @@ export default function FormAuth() {
         <h5>ВХОД</h5>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>E-mail</Form.Label>
-          <Form.Control type="email" placeholder="E-mail" style={{ ...inputStyle, height: '42.5px' }} />
+          <Form.Control type="email" name="email" placeholder="E-mail" style={{ ...inputStyle, height: '42.5px' }} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Пароль</Form.Label>
-          <Form.Control type="password" placeholder="Пароль" style={{ ...inputStyle, height: '42.5px' }} />
+          <Form.Control type="password" name="password" placeholder="Пароль" style={{ ...inputStyle, height: '42.5px' }} />
         </Form.Group>
         <Button variant="dark" type="submit" style={{ width: '250px', height: '40px' }}>
           ВОЙТИ
