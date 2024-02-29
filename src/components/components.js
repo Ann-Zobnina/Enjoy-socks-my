@@ -1,8 +1,8 @@
-import Page from './pages/Page';
+import FormGenerate from './pages/FormGenerate';
 import FormAuth from './pages/FormAuth';
 
 const components = {
-  Page,
+  FormGenerate,
   FormAuth,
 };
 

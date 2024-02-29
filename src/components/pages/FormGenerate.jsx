@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import FormDisplay from '../ui/FormDisplay';
 import FormSetting from '../ui/FormSetting';
 
-export default function Page({ socksColors }) {
+export default function FormGenerate({ socksColors }) {
   const [allColor, setColor] = useState(socksColors);
   const [selectedImage, setSelectedImage] = useState(null);
 

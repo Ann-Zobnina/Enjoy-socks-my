@@ -6,7 +6,7 @@ import { Sock, Cart } from '../../db/models';
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('Page');
+  res.render('FormGenerate');
 });
 
 router.get('/cart', checkAuthFactory(true), async (req, res) => {
