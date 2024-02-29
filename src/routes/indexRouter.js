@@ -9,13 +9,6 @@ router.get('/', (req, res) => {
   res.render('FormGenerate');
 });
 
-<<<<<<< HEAD
-=======
-router.get('/login', async (req, res) => {
-  res.render('FormAuth');
-});
-
->>>>>>> dev
 router.get('/cart', checkAuthFactory(true), async (req, res) => {
   try {
     const socks = await Cart.findAll({ where: { userId: res.locals?.user?.id } });
