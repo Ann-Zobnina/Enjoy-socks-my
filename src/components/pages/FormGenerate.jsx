@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 import FormDisplay from '../ui/FormDisplay';
 import FormSetting from '../ui/FormSetting';
 
@@ -19,20 +20,17 @@ export default function FormGenerate({ socksColors }) {
     setColor(newColor);
   };
 
-
   return (
-    <div className="container py-5">
-      <div className="row">
-        <div className="col-lg-8">
-          {/* {allColor?.map((el, index) => ( */}
+    <Container className="py-5">
+      <Row>
+        <Col lg={8}>
           <FormDisplay
             allColor={allColor}
             selectedImage2={selectedImage2}
             selectedImage={selectedImage}
           />
-          {/* ))} */}
-        </div>
-        <div className="col-lg-4">
+        </Col>
+        <Col lg={4}>
           <FormSetting
             socksColors={socksColors}
             setColor={setColor}
@@ -40,8 +38,8 @@ export default function FormGenerate({ socksColors }) {
             handleImageClick={handleImageClick}
             handleImageClick2={handleImageClick2}
           />
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }
