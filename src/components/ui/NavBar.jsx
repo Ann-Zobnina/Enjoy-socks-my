@@ -11,7 +11,7 @@ export default function NavBar({ user }) {
     <Navbar bg="light" data-bs-theme="light" style={{ fontSize: '25.6px' }}>
       <Container>
         <img
-          src="img/лого.svg"
+          src="img/logo.svg"
           width="30"
           height="30"
           className="d-inline-block align-top"
