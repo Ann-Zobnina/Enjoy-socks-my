@@ -32,22 +32,29 @@ apiAuthRouter.post('/signup', async (req, res) => {
 apiAuthRouter.post('/login', async (req, res) => {
   const { email, password } = req.body;
   try {
-    if (!email || !password) throw new Error('Не все поля заполнены!');
-  } catch (err) {
-    res.status(404).json({ message: err.message });
-  }
+    if (!email || !password) {
+      throw new Error('Не все поля заполнены!');
+    }
 
-  const targetUser = await User.findOne({
-    where: { email },
-  });
-  if (!targetUser) return res.json({ message: 'Пользователь с таким e-mail не найден!' });
-  const passwordIsCorrect = await bcrypt.compare(password, targetUser.hashpass);
-  if (!passwordIsCorrect) return res.status(403).json({ message: 'Incorrect password' });
+    const targetUser = await User.findOne({
+      where: { email },
+    });
+
+    if (!targetUser) {
+      return res.json({ message: 'Пользователь с таким e-mail не найден!' });
+    }
+
+    const passwordIsCorrect = await bcrypt.compare(password, targetUser.hashpass);
+
+    if (!passwordIsCorrect) {
+      return res.status(403).json({ message: 'Incorrect password' });
+    }
 
     const user = targetUser.get();
     delete user.hashpass;
 
     const { accessToken, refreshToken } = generateTokens({ user });
+
     res.cookie('accessToken', accessToken, cookiesConfig.access)
       .cookie('refreshToken', refreshToken, cookiesConfig.refresh)
       .sendStatus(200);
