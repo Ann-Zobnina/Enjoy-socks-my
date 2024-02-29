@@ -1,5 +1,5 @@
 import express from 'express';
-import { checkAuthFactory } from '../middlewares/checkAuthFactory';
+import checkAuthFactory from '../middlewares/checkAuthFactory';
 
 import { Sock, Cart } from '../../db/models';
 
