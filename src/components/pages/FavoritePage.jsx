@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Container } from 'react-bootstrap';
 import FavoriteItem from '../ui/FavoriteItem';
 
 export default function FavoritePage({ socks }) {
@@ -24,32 +25,37 @@ export default function FavoritePage({ socks }) {
   };
 
   return (
-    <div>
-      <h1>Избранное:</h1>
-      {items
-        ? (
-          <div style={{
-            display: 'flex', marginLeft: '30px', gap: '30px', flexWrap: 'wrap', justifyContent: 'flex-start',
-          }}
-          >
-            {items?.map((fav) => (
-              <div
-                key={fav.id}
-                style={{
-                  display: 'flex', marginBottom: '50px',
-                }}
-              >
-                <FavoriteItem fav={fav} deleteHandler={deleteHandler} />
-              </div>
-            ))}
+    <Container>
+      <h1 style={{ textAlign: 'center', margin: '20px 0' }}>Избранное</h1>
+      <div style={{
+        minHeight: '500px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start',
+      }}
+      >
+        {items.length
+          ? (
+            <div>
+              {//   style={{
+                //   display: 'flex', gap: '30px', flexWrap: 'wrap', justifyContent: 'flex-start',
+                // }}
+                // >
+              }
+              {items?.map((fav) => (
+                <div
+                  key={fav.id}
+                >
+                  <FavoriteItem fav={fav} deleteHandler={deleteHandler} />
+                </div>
+              ))}
 
-          </div>
-        )
-        : (
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <h5 style={{ margin: '50px 50px 50px 50px' }}>У вас еще нет избранных товаров</h5>
-          </div>
-        )}
-    </div>
+            </div>
+          )
+          : (
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <h5 style={{ margin: '50px 50px 50px 50px' }}>У вас еще нет избранных товаров</h5>
+            </div>
+          )}
+      </div>
+      {/* </div> */}
+    </Container>
   );
 }

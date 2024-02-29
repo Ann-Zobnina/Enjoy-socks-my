@@ -1,4 +1,5 @@
 import React from 'react';
+import { Col, Row } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -19,43 +20,48 @@ export default function NavBar({ user }) {
       }}
     >
       <Container>
-        <img
-          src="img/logo.svg"
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
-          alt="React Bootstrap logo"
-        />
-        <div>
-          <Navbar.Brand
-            href="/"
-            style={{
-              fontSize: '39px',
-              fontFamily: '"Caveat", cursive',
-            }}
-          >
-            Enjoy socks
-          </Navbar.Brand>
+        <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+          <img
+            style={{ display: 'block' }}
+            src="img/logo.svg"
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+            alt="React Bootstrap logo"
+          />
+          <div>
+            <Navbar.Brand
+              href="/"
+              style={{
+                fontSize: '39px',
+                fontFamily: '"Caveat", cursive',
+              }}
+            >
+              Enjoy socks
+            </Navbar.Brand>
+          </div>
         </div>
-        {user ? (
-          <>
-            <div style={{ marginLeft: '720px' }}>{user.name}</div>
-            <Nav.Link href="/cart"><FaShoppingCart /></Nav.Link>
-            <Nav.Link href="/favorite">
-              <FaHeart />
-            </Nav.Link>
-            <Nav.Link href="/api/auth/logout" style={{ marginRight: '5px' }}>
-              <FaSignInAlt />
-            </Nav.Link>
-          </>
-        ) : (
-          <>
-            <Nav.Link href="/login" style={{ marginLeft: '885px' }}>
-              Войти
-            </Nav.Link>
-            <Nav.Link href="/render/cart" style={{ color: 'white' }}><FaShoppingCart /></Nav.Link>
-          </>
-        )}
+        <div style={{ display: 'flex', gap: '15px' }}>
+          {user ? (
+            <>
+              <div>{user.name}</div>
+              <Nav.Link href="/cart"><FaShoppingCart /></Nav.Link>
+              <Nav.Link href="/favorite">
+                <FaHeart />
+              </Nav.Link>
+              <Nav.Link href="/api/auth/logout">
+                <FaSignInAlt />
+              </Nav.Link>
+            </>
+          ) : (
+            <>
+              <Nav.Link href="/login">
+                Войти
+              </Nav.Link>
+              <Nav.Link href="/render/cart" style={{ color: 'white' }}><FaShoppingCart /></Nav.Link>
+            </>
+          )}
+        </div>
       </Container>
     </Navbar>
   );
