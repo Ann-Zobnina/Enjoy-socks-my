@@ -22,10 +22,7 @@ export default function Layout({ children, initState }) {
         />
         <title>Enjoy socks</title>
       </head>
-      <body style={{
-        minHeight: '100vh', display: 'flex', flexDirection: 'column',
-      }}
-      >
+      <body>
         <div id="root">{children}</div>
       </body>
     </html>
