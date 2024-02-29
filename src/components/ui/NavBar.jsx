@@ -15,6 +15,7 @@ export default function NavBar({ user }) {
         backgroundColor: '#474A51',
         fontSize: '39px',
         fontFamily: '"Caveat", cursive',
+        color: 'white',
       }}
     >
       <Container>
@@ -53,8 +54,6 @@ export default function NavBar({ user }) {
               Войти
             </Nav.Link>
             <Nav.Link href="/render/cart" style={{ color: 'white' }}><FaShoppingCart /></Nav.Link>
-
-            <Nav.Link href="/cart"><FaShoppingCart /></Nav.Link>
           </>
         )}
       </Container>
