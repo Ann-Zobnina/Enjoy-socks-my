@@ -27,7 +27,7 @@ export default function NavBar({ user }) {
             <Nav.Link href="#pricing">
               <FaHeart />
             </Nav.Link>
-            <Nav.Link href="/auth/logout" style={{ marginRight: '5px' }}>
+            <Nav.Link href="/api/auth/logout" style={{ marginRight: '5px' }}>
               <FaSignInAlt />
             </Nav.Link>
           </>
@@ -36,7 +36,7 @@ export default function NavBar({ user }) {
             <Nav.Link href="/api/auth/login" style={{ marginLeft: '720px', marginRight: '35px' }}>
               Войти
             </Nav.Link>
-            <Nav.Link href="/render/cart" style={{ marginLeft: '850px', marginRight: '35px' }}><FaShoppingCart /></Nav.Link>
+            <Nav.Link href="/render/cart" style={{ marginRight: '35px' }}><FaShoppingCart /></Nav.Link>
           </>
         )}
         {/* <Nav className="me-auto">
