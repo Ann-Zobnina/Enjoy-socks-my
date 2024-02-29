@@ -12,7 +12,14 @@ export default function MainPage() {
         minHeight: '400px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
       }}
       >
-        <h1 style={{ textAlign: 'center' }}>Enjoy socks</h1>
+        <h1 style={{
+          textAlign: 'center',
+          fontSize: '39px',
+          fontFamily: '"Caveat", cursive',
+        }}
+        >
+          Enjoy socks
+        </h1>
         <p>Самое время быть уникальным! Смоделируй свою любимую пару носков!</p>
         <Button onClick={onClickHandler}>Сгенерировать</Button>
       </div>
