@@ -5,7 +5,10 @@ import Svg from './Svg';
 export default function FormDisplay({ allColor, selectedImage, selectedImage2 }) {
   return (
     <>
-      <Card style={{ borderBottom: 'none' }} className="card card-content">
+      <Card
+        style={{ borderBottom: 'none', backgroundColor: 'black' }}
+        className="card card-content"
+      >
         <Svg setColor={allColor} />
       </Card>
       <Card className="card card-content">
@@ -23,9 +26,9 @@ export default function FormDisplay({ allColor, selectedImage, selectedImage2 })
           <img
             src={selectedImage2}
             alt="Selected"
-            width="682"
-            height="850"
-            style={{ position: 'absolute', top: '-890px', left: '220px' }}
+            width="800"
+            height="800"
+            style={{ position: 'absolute', top: '-890px', left: '10px' }}
           />
         )}
       </Card>
