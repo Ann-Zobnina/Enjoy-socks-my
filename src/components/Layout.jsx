@@ -26,7 +26,7 @@ export default function Layout({ children, initState }) {
         minHeight: '100vh', display: 'flex', flexDirection: 'column',
       }}
       >
-        <div id="root" style={{ flex: 1 }}>{children}</div>
+        <div id="root">{children}</div>
       </body>
     </html>
   );
