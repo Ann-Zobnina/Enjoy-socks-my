@@ -29,7 +29,7 @@ apiAuthRouter.post('/signup', async (req, res) => {
       .cookie('refreshToken', refreshToken, cookiesConfig.refresh)
       .sendStatus(200);
   } catch (err) {
-    res.status(403).json({ message: err.message });
+    res.status(403).json(err.message);
   }
 });
 
