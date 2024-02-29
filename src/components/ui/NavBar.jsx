@@ -15,6 +15,7 @@ export default function NavBar({ user }) {
         backgroundColor: '#474A51',
         fontSize: '39px',
         fontFamily: '"Caveat", cursive',
+        color: 'white',
       }}
     >
       <Container>
@@ -40,7 +41,7 @@ export default function NavBar({ user }) {
           <>
             <div style={{ marginLeft: '720px' }}>{user.name}</div>
             <Nav.Link href="/cart"><FaShoppingCart /></Nav.Link>
-            <Nav.Link href="/favorites">
+            <Nav.Link href="/favorite">
               <FaHeart />
             </Nav.Link>
             <Nav.Link href="/api/auth/logout" style={{ marginRight: '5px' }}>
@@ -53,8 +54,6 @@ export default function NavBar({ user }) {
               Войти
             </Nav.Link>
             <Nav.Link href="/render/cart" style={{ color: 'white' }}><FaShoppingCart /></Nav.Link>
-
-            <Nav.Link href="/cart"><FaShoppingCart /></Nav.Link>
           </>
         )}
       </Container>
