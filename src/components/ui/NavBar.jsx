@@ -2,7 +2,9 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { FaShoppingCart, FaHeart, FaSignInAlt } from 'react-icons/fa';
+import {
+  FaShoppingCart, FaHeart, FaSignInAlt,
+} from 'react-icons/fa';
 
 export default function NavBar({ user }) {
   return (
@@ -18,15 +20,22 @@ export default function NavBar({ user }) {
         <Navbar.Brand href="/" style={{ marginLeft: '20px' }}>
           Enjoy socks
         </Navbar.Brand>
+        {!user ? (
+          <Nav.Link href="/api/auth/login" style={{ marginLeft: '720px', marginRight: '35px' }}>
+            Войти
+          </Nav.Link>
+        ) : (
+          user.name
+        )}
         <Nav className="me-auto">
-          <Nav.Link href="#features" style={{ marginLeft: '850px', marginRight: '35px' }}>
+          <Nav.Link href="#features" style={{ marginRight: '35px' }}>
             <FaShoppingCart />
           </Nav.Link>
           <Nav.Link href="#pricing" style={{ marginRight: '35px' }}>
             <FaHeart />
           </Nav.Link>
 
-          <Nav.Link href="/api/auth/login" style={{ marginRight: '5px' }}>
+          <Nav.Link href="/auth/logout" style={{ marginRight: '5px' }}>
             <FaSignInAlt />
           </Nav.Link>
         </Nav>
