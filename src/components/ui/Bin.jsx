@@ -4,8 +4,7 @@ export default function Bin() {
   const [items, setItems] = useState(false);
 
   const deleteHandler = async (CartItemId) => {
-    const url = `/api/cart/${CartItemId}`;
-    const response = await fetch(url, { method: 'DELETE' });
+    const response = await fetch(`/api/change/${CartItemId}/cart`, { method: 'DELETE' });
     if (response.status === 200) {
       setItems((prev) => prev.filter((cartItem) => cartItem.id !== CartItemId));
     } else if (response.status === 500) {
@@ -33,7 +32,7 @@ export default function Bin() {
                 <div className="card mb-3" style={{ maxWidth: '540px' }}>
                   <div className="row g-0">
                     <div className="col-md-4">
-                      <img src={item.Product.img} className="img-fluid rounded-start" alt="..." />
+                      <img src={item.Sock.img} className="img-fluid rounded-start" alt="..." />
                     </div>
                     <div className="col-md-8">
                       <div className="card-body">
