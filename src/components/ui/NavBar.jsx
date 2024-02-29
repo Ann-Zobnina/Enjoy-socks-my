@@ -38,7 +38,7 @@ export default function NavBar({ user }) {
             <Nav.Link href="/login" style={{ marginLeft: '885px' }}>
               Войти
             </Nav.Link>
-            <Nav.Link href="/api/change/cart"><FaShoppingCart /></Nav.Link>
+            <Nav.Link href="/cart"><FaShoppingCart /></Nav.Link>
           </>
         )}
       </Container>
