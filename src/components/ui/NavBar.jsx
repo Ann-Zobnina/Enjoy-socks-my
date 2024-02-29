@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { FaShoppingCart, FaHeart, FaSignInAlt } from 'react-icons/fa';
 
-export default function NavBar() {
+export default function NavBar({ user }) {
   return (
     <Navbar bg="light" data-bs-theme="light" style={{ fontSize: '25.6px' }}>
       <Container>
@@ -15,10 +15,17 @@ export default function NavBar() {
           className="d-inline-block align-top"
           alt="React Bootstrap logo"
         />
-        <Navbar.Brand href="/" style={{ marginLeft: '20px' }}>Enjoy socks</Navbar.Brand>
+        <Navbar.Brand href="/" style={{ marginLeft: '20px' }}>
+          Enjoy socks
+        </Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="#features" style={{ marginLeft: '850px', marginRight: '35px' }}><FaShoppingCart /></Nav.Link>
-          <Nav.Link href="#pricing" style={{ marginRight: '35px' }}><FaHeart /></Nav.Link>
+          <Nav.Link href="#features" style={{ marginLeft: '850px', marginRight: '35px' }}>
+            <FaShoppingCart />
+          </Nav.Link>
+          <Nav.Link href="#pricing" style={{ marginRight: '35px' }}>
+            <FaHeart />
+          </Nav.Link>
+
           <Nav.Link href="/api/auth/login" style={{ marginRight: '5px' }}>
             <FaSignInAlt />
           </Nav.Link>
