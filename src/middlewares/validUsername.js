@@ -1,5 +1,5 @@
 export default function validUsername(username) {
   return username
-      && username.length >= 5
+      && username.length >= 3
       && !username.includes(' ');
 }
