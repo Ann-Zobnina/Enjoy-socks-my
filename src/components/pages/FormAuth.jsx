@@ -5,6 +5,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 export default function FormAuth() {
+  const inputStyle = {
+    width: '300px',
+    outline: 'none',
+    border: '1px solid #ced4da',
+    boxShadow: 'none',
+  };
+
   const submitHandlerLogin = async (event) => {
     event.preventDefault();
     try {
@@ -34,45 +41,52 @@ export default function FormAuth() {
   };
 
   return (
-      <Container style={{
-        display: 'flex', justifyContent: 'space-evenly', margin: 'auto', marginTop: '40px',
-      }}>
-        <Form onSubmit={submitHandlerLogin} style={{ color: 'black' }}>
-          <h3 style={{ marginLeft: '403.5px' }}>ВХОД В ЛИЧНЫЙ КАБИНЕТ</h3>
-          <h5>ВХОД</h5>
-          <Form.Group className="mb-3" controlId="formBasicEmail" style={{ width: '300px' }}>
-            <Form.Label>E-mail</Form.Label>
-            <Form.Control type="email" placeholder="E-mail" />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword" style={{ width: '300px' }}>
-            <Form.Label>Пароль</Form.Label>
-            <Form.Control type="password" placeholder="Пароль" style={{ outline: 'none' }} />
-          </Form.Group>
-          <Button variant="dark" type="submit" style={{ width: '250px', height: '40px' }}>
-            ВОЙТИ
-          </Button>
-        </Form>
+    <Container style={{
+      display: 'flex',
+      justifyContent: 'space-evenly',
+      margin: 'auto',
+      marginTop: '40px',
+    }}
+    >
+      <Form onSubmit={submitHandlerLogin} style={{ color: 'black' }}>
+        <h3 style={{ marginLeft: '403.5px' }}>ВХОД В ЛИЧНЫЙ КАБИНЕТ</h3>
+        <h5>ВХОД</h5>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>E-mail</Form.Label>
+          <Form.Control type="email" placeholder="E-mail" style={{ ...inputStyle, height: '42.5px' }} />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Пароль</Form.Label>
+          <Form.Control type="password" placeholder="Пароль" style={{ ...inputStyle, height: '42.5px' }} />
+        </Form.Group>
+        <Button variant="dark" type="submit" style={{ width: '250px', height: '40px' }}>
+          ВОЙТИ
+        </Button>
+      </Form>
 
-        <Form onSubmit={submitHandlerRegister} style={{ color: 'black', marginTop: '40px' }}>
-          <h5>Регистрация</h5>
-          <Form.Group className="mb-3" controlId="formBasicEmail" style={{ width: '300px' }}>
-            <Form.Label>E-mail</Form.Label>
-            <Form.Control type="email" placeholder="E-mail" />
-          </Form.Group>
+      <Form onSubmit={submitHandlerRegister} style={{ color: 'black', marginTop: '40px' }}>
+        <h5>Регистрация</h5>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>E-mail</Form.Label>
+          <Form.Control type="email" placeholder="E-mail" style={{ ...inputStyle, height: '42.5px' }} />
+        </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicEmail" style={{ width: '300px' }}>
-            <Form.Label>Имя</Form.Label>
-            <Form.Control type="email" placeholder="Ваше Имя" />
-          </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Имя</Form.Label>
+          <Form.Control type="email" placeholder="Ваше Имя" style={{ ...inputStyle }} />
+        </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword" style={{ width: '300px' }}>
-            <Form.Label>Пароль</Form.Label>
-            <Form.Control type="password" placeholder="Пароль" style={{ outline: 'none' }} />
-          </Form.Group>
-          <Button variant="dark" type="submit" style={{ width: '250px', height: '40px' }}>
-            ЗАРЕГИСТРИРОВАТЬСЯ
-          </Button>
-        </Form>
-      </Container>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Пароль</Form.Label>
+          <Form.Control type="password" placeholder="Пароль" style={{ ...inputStyle, height: '42.5px' }} />
+        </Form.Group>
+        <Button variant="dark" type="submit" style={{ width: '250px', height: '40px' }}>
+          ЗАРЕГИСТРИРОВАТЬСЯ
+        </Button>
+      </Form>
+    </Container>
   );
 }
+
+// валидацию паролей мб сделать? это изи
+// хочу сделать упр инпуты чтобы пользователь собственно не мог вводить лишнюю инфу ( валидатион добавить)
