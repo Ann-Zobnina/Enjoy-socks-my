@@ -39,8 +39,8 @@ export default function NavBar({ user }) {
         {user ? (
           <>
             <div style={{ marginLeft: '720px' }}>{user.name}</div>
-            <Nav.Link href="/render/cart"><FaShoppingCart /></Nav.Link>
-            <Nav.Link href="#pricing">
+            <Nav.Link href="/cart"><FaShoppingCart /></Nav.Link>
+            <Nav.Link href="/favorites">
               <FaHeart />
             </Nav.Link>
             <Nav.Link href="/api/auth/logout" style={{ marginRight: '5px' }}>
@@ -49,10 +49,12 @@ export default function NavBar({ user }) {
           </>
         ) : (
           <>
-            <Nav.Link href="/login" style={{ marginLeft: '680px' }}>
+            <Nav.Link href="/login" style={{ marginLeft: '885px' }}>
               Войти
             </Nav.Link>
             <Nav.Link href="/render/cart" style={{ color: 'white' }}><FaShoppingCart /></Nav.Link>
+
+            <Nav.Link href="/cart"><FaShoppingCart /></Nav.Link>
           </>
         )}
       </Container>
