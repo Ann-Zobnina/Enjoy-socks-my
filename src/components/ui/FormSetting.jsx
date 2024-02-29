@@ -85,7 +85,7 @@ export default function FormSetting({ socksColors, setColor: setParentColor, han
           <option value="grey">Grey</option>
           <option value="blue">Blue</option>
           <option value="red">Red</option>
-          <option value="white">White</option>
+          {/* <option value="white">White</option> */}
           <option value="black">Black</option>
         </select>
       </div>
