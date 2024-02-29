@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import Bin from '../ui/Bin';
+import axios from 'axios';
+import CartItem from '../ui/CartItem';
 
 export default function CartPage({ cartItems }) {
   const [items, setItems] = useState(cartItems);
 
   const deleteHandler = async (CartItemId) => {
-    const url = `/api/change/${CartItemId}/cart`;
-    const response = await fetch(url, { method: 'DELETE' });
+    const response = await axios.delete('/api/change/cart', { id: CartItemId });
     if (response.status === 200) {
       setItems((prev) => prev.filter((cartItem) => cartItem.id !== CartItemId));
     } else if (response.status === 500) {
-      const message = await response.json();
+      const message = await response.data.json();
       console.log(message);
     }
   };
@@ -31,7 +31,7 @@ export default function CartPage({ cartItems }) {
                   display: 'flex', marginBottom: '50px',
                 }}
               >
-                <Bin item={item} deleteHandler={deleteHandler} />
+                <CartItem item={item} deleteHandler={deleteHandler} />
               </div>
             ))}
 

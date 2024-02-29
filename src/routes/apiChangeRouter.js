@@ -46,12 +46,7 @@ apiChangeRouter.route('/cart')
 // Favorites
 apiChangeRouter.put('/favorites', verifyAccessToken, async (req, res) => {
   try {
-    await Sock.update(req.body, {
-      where: {
-        userId: res.locals?.user?.id,
-        id: req.body.id,
-      },
-    });
+    await Sock.update({ favorite: req.body.favorite }, { where: { id: req.body.id } });
     res.sendStatus(200);
   } catch (err) {
     res.status(500).json(err.message);
