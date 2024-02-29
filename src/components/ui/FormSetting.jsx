@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 
-export default function FormSetting({ socksColors, setColor: setParentColor, handleImageClick }) {
+export default function FormSetting({
+  socksColors,
+  setColor: setParentColor,
+  handleImageClick,
+  handleImageClick2,
+}) {
   const [currentColor, setColor] = useState(socksColors);
 
   const handleColorChange = (newColor) => {
@@ -14,7 +19,7 @@ export default function FormSetting({ socksColors, setColor: setParentColor, han
         <h4>Change++</h4>
         <div className="tshirt color">
           <img
-            onClick={() => handleImageClick('img/1.png')}
+            onClick={() => handleImageClick2('img/1.png')}
             src="img/1.png"
             width="150"
             height="150"
@@ -22,21 +27,21 @@ export default function FormSetting({ socksColors, setColor: setParentColor, han
             id="cubes"
           />
           <img
-            onClick={() => handleImageClick('img/2.png')}
+            onClick={() => handleImageClick2('img/2.png')}
             src="img/2.png"
             width="150"
             height="150"
             alt="black-dots"
           />
           <img
-            onClick={() => handleImageClick('img/3.png')}
+            onClick={() => handleImageClick2('img/3.png')}
             src="img/3.png"
             width="150"
             height="150"
             alt="black-sky"
           />
           <img
-            onClick={() => handleImageClick('img/4.png')}
+            onClick={() => handleImageClick2('img/4.png')}
             src="img/4.png"
             width="150"
             height="150"
@@ -85,7 +90,7 @@ export default function FormSetting({ socksColors, setColor: setParentColor, han
           <option value="grey">Grey</option>
           <option value="blue">Blue</option>
           <option value="red">Red</option>
-          {/* <option value="white">White</option> */}
+          <option value="white">White</option>
           <option value="black">Black</option>
         </select>
       </div>
