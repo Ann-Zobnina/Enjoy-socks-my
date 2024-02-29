@@ -13,7 +13,7 @@ export default function FormSetting({ socksColors, setColor: setParentColor, han
         <h3 className="text-center">Settings</h3>
         <h4>Change++</h4>
         <div className="tshirt color">
-          {/* <img
+          <img
             onClick={() => handleImageClick('img/1.png')}
             src="img/1.png"
             width="150"
@@ -42,7 +42,7 @@ export default function FormSetting({ socksColors, setColor: setParentColor, han
             height="150"
             alt="blue-tshirt"
           />
-          <hr /> */}
+          <hr />
           <img
             onClick={() => handleImageClick('img/5.png')}
             src="img/5.png"

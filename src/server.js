@@ -10,6 +10,9 @@ import apiChangeRouter from './routes/apiChangeRouter';
 import resLocals from './middlewares/resLocals';
 import cartRouter from './routes/cartRouter';
 
+import apiSignUp from './routes/apiAuthRouter';
+
+
 const PORT = process.env.PORT || 3000;
 const app = express();
 
