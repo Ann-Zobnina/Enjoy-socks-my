@@ -8,7 +8,7 @@ export default function FavoriteItem({ fav, changeHandler }) {
     <Card style={{ width: '370px' }}>
       <Card.Header as="h5" style={{ display: 'flex', justifyContent: 'space-between' }}>
         Sock
-        <CloseButton onClick={() => deleteHandler(fav.id)} />
+        <CloseButton onClick={() => changeHandler(fav.id)} />
       </Card.Header>
       <Card.Body style={{ backgroundColor: 'black', borderBottomLeftRadius: '8px', borderBottomRightRadius: '8px' }}>
         <Svg

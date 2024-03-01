@@ -59,7 +59,6 @@ export default function CartPage({ socks }) {
                 }}
               >
                 <CartItem item={item} deleteHandler={deleteHandler} />
-                {/* <FavoriteItem fav={fav} changeHandler={changeHandler} /> */}
               </div>
             ))}
           </div>
