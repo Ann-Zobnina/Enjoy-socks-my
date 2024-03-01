@@ -35,7 +35,7 @@ export default function CartPage({ socks }) {
       const message = await response.data.json();
       console.log(message);
     }
-  };
+  }; //
 
   return (
     <Container>
