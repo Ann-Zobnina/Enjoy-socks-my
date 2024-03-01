@@ -15,6 +15,7 @@ router.get('/generate', async (req, res) => {
   const socksColors = await Color.findAll();
   const socksDecor = await Decor.findAll();
   const images = await Image.findAll();
+  console.log(res.locals.user);
   const { id } = res.locals.user;
   const user = await User.findOne({ where: { id } });
 
