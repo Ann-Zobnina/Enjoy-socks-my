@@ -138,7 +138,7 @@ export default function FormSetting({
               Убрать Узор
             </Button>
             <div />
-            {user.role && (
+            {user && user.role && (
               <Row>
                 <Col xs={12}>
                   <Form onSubmit={editProfilePic}>

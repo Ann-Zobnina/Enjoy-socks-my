@@ -9,7 +9,7 @@ export default function FormGenerate({
   const [allColor, setColor] = useState(socksColors[0].color);
   const [selectedDecor, setSelectedDecor] = useState(null);
   const [selectedImage2, setSelectedImage2] = useState(null);
-  console.log(user.role, 'user');
+  // console.log(user.role, 'user');
 
   const handleDecorClick = (imageSrc) => {
     setSelectedDecor(imageSrc);

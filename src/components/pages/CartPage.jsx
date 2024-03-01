@@ -16,7 +16,7 @@ export default function CartPage({ socks }) {
       },
       body: {
         id: favItemId,
-        favorite: false,
+        addToCart: true,
       },
     });
     if (response.status === 200) {
@@ -48,7 +48,7 @@ export default function CartPage({ socks }) {
           alignItems: 'flex-start',
         }}
       >
-        {items ? (
+        {items.length ? (
           <div>
             {items?.map((item) => (
               <div
@@ -59,7 +59,6 @@ export default function CartPage({ socks }) {
                 }}
               >
                 <CartItem item={item} changeHandler={changeHandler} deleteHandler={deleteHandler} />
-                {/* <FavoriteItem fav={fav} changeHandler={changeHandler} /> */}
               </div>
             ))}
           </div>
