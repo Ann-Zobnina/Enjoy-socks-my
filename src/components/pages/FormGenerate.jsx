@@ -9,15 +9,28 @@ export default function FormGenerate({
   const [allColor, setColor] = useState(socksColors[0].color);
   const [selectedDecor, setSelectedDecor] = useState(null);
   const [selectedImage2, setSelectedImage2] = useState(null);
-  console.log(user.role, 'user');
+  // console.log(user.role, 'user');
 
   const handleDecorClick = (imageSrc) => {
     setSelectedDecor(imageSrc);
   };
-  console.log(socksDecor, 'socksDecor');
+
   const handleImageClick2 = (imageSrc2) => {
     setSelectedImage2(imageSrc2);
   };
+
+  const deleteImage = () => {
+    setSelectedDecor(null);
+  };
+
+  const deleteDecor = () => {
+    setSelectedImage2(null);
+  };
+
+  const deleteColor = () => {
+    setColor(null);
+  };
+
   const handleReset = () => {
     setColor(socksColors[0].color);
     setSelectedDecor(null);
@@ -26,14 +39,14 @@ export default function FormGenerate({
   return (
     <Container className="py-5">
       <Row>
-        <Col lg={4}>
+        <Col lg={6}>
           <FormDisplay
             allColor={allColor}
             selectedImage2={selectedImage2}
             selectedDecor={selectedDecor}
           />
         </Col>
-        <Col lg={8}>
+        <Col lg={6}>
           <FormSetting
             socksColors={socksColors}
             setColor={setColor}
@@ -44,6 +57,9 @@ export default function FormGenerate({
             setSelectedImage2={setSelectedImage2}
             handleDecorClick={handleDecorClick}
             handleImageClick2={handleImageClick2}
+            deleteDecor={deleteDecor}
+            deleteColor={deleteColor}
+            deleteImage={deleteImage}
             socksDecor={socksDecor}
           />
         </Col>

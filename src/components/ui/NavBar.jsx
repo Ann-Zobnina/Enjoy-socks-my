@@ -58,7 +58,7 @@ export default function NavBar({ user }) {
               <Nav.Link href="/login">
                 Войти/регистрация
               </Nav.Link>
-              <Nav.Link href="/render/cart" style={{ color: 'white' }}><FaShoppingCart /></Nav.Link>
+              <Nav.Link href="/cart" style={{ color: 'white' }}><FaShoppingCart /></Nav.Link>
             </>
           )}
         </div>

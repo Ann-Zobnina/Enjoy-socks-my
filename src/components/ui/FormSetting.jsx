@@ -15,6 +15,9 @@ export default function FormSetting({
   handleImageClick2,
   socksDecor,
   handleReset,
+  deleteDecor,
+  deleteImage,
+  deleteColor,
   images,
   user,
 }) {
@@ -38,22 +41,24 @@ export default function FormSetting({
   };
 
   const addToBasket = async () => {
+    const dataToSend = {
+      colorId,
+      decorId,
+      imageId,
+    };
     try {
-      const dataToSend = {
-        colorId,
-        decorId,
-        imageId,
-      };
-
-      const response = await fetch('/api/action/sock/basket', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(dataToSend),
-      });
-      const data = await response.json();
-      console.log(data);
+      if (user) {
+        const response = await fetch('/api/action/sock/basket', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(dataToSend),
+        });
+        const data = await response.json();
+      } else {
+        localStorage.setItem(dataToSend);
+      }
     } catch (error) {
       console.error('Ошибка при отправке запроса:', error);
     }
@@ -67,7 +72,6 @@ export default function FormSetting({
         decorId,
         imageId,
       };
-
       const response = await fetch('/api/action/sock/like', {
         method: 'POST',
         headers: {
@@ -143,14 +147,14 @@ export default function FormSetting({
           </>
         )}
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Button variant="primary" style={{ width: '30%' }}>
-            <FaShoppingCart onClick={addToBasket} />
+          <Button variant="primary" style={{ width: '30%' }} onClick={addToBasket}>
+            <FaShoppingCart />
           </Button>
-          <Button variant="primary" style={{ width: '30%' }}>
-            <FaHeart onClick={addToFavorites} />
+          <Button variant="primary" style={{ width: '30%' }} onClick={addToFavorites}>
+            <FaHeart />
           </Button>
-          <Button variant="primary" style={{ width: '30%' }}>
-            <FaTimes onClick={() => handleReset()} />
+          <Button variant="primary" style={{ width: '30%' }} onClick={() => handleReset()}>
+            <FaTimes />
           </Button>
         </div>
       </div>
