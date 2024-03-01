@@ -18,7 +18,7 @@ export default function CartPage({ cartItems }) {
 
   return (
     <Container>
-      <h1 style={{ textAlign: 'center', margin: '20px 0' }}>Корзина:</h1>
+      <h1 style={{ textAlign: 'center', margin: '20px 0' }}>Корзина</h1>
       <div style={{
         minHeight: '500px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start',
       }}
