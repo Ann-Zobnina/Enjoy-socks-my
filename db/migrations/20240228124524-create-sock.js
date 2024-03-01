@@ -8,21 +8,32 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      color: {
+      colorId: {
         allowNull: false,
-        type: Sequelize.ENUM(['белый', 'желтый', 'фиолетовый', 'розовый', 'салатовый', 'голубой']),
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Colors',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
       },
-      pic: {
+      imageId: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Images',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
       },
-      decor: {
+      decorId: {
         allowNull: false,
-        type: Sequelize.STRING,
-      },
-      favorite: {
-        allowNull: false,
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Decors',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
       },
       userId: {
         allowNull: false,

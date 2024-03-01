@@ -23,7 +23,8 @@ export default function FormAuth() {
 
   const changeHandler = (elem) => {
     setInput((prev) => ({
-      ...prev, [elem.target.name]: elem.target.value,
+      ...prev,
+      [elem.target.name]: elem.target.value,
     }));
   };
 
@@ -57,11 +58,12 @@ export default function FormAuth() {
   };
 
   return (
-    <Container style={{
-      justifyContent: 'space-evenly',
-      margin: 'auto',
-      marginTop: '40px',
-    }}
+    <Container
+      style={{
+        justifyContent: 'space-evenly',
+        margin: 'auto',
+        marginTop: '40px',
+      }}
     >
       <div style={{ minHeight: '600px', display: 'flex', justifyContent: 'space-around' }}>
         <Form onSubmit={submitHandlerLogin} style={{ color: 'black' }}>
@@ -69,11 +71,21 @@ export default function FormAuth() {
           <h5>ВХОД</h5>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>E-mail</Form.Label>
-            <Form.Control type="email" name="email" placeholder="E-mail" style={{ ...inputStyle, height: '42.5px' }} />
+            <Form.Control
+              type="email"
+              name="email"
+              placeholder="E-mail"
+              style={{ ...inputStyle, height: '42.5px' }}
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Пароль</Form.Label>
-            <Form.Control type="password" name="password" placeholder="Пароль" style={{ ...inputStyle, height: '42.5px' }} />
+            <Form.Control
+              type="password"
+              name="password"
+              placeholder="Пароль"
+              style={{ ...inputStyle, height: '42.5px' }}
+            />
           </Form.Group>
           <Button variant="dark" type="submit" style={{ width: '250px', height: '40px' }}>
             ВОЙТИ
@@ -84,47 +96,74 @@ export default function FormAuth() {
           <h5>Регистрация</h5>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>E-mail</Form.Label>
-            <Form.Control value={value.email} onChange={changeHandler} name="email" type="email" placeholder="E-mail" style={{ ...inputStyle, height: '42.5px' }} />
+            <Form.Control
+              value={value.email}
+              onChange={changeHandler}
+              name="email"
+              type="email"
+              placeholder="E-mail"
+              style={{ ...inputStyle, height: '42.5px' }}
+            />
           </Form.Group>
-
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Имя</Form.Label>
-            <Form.Control value={value.name} onChange={changeHandler} name="name" type="text" placeholder="Ваше Имя" style={{ ...inputStyle }} />
+            <Form.Control
+              value={value.name}
+              onChange={changeHandler}
+              name="name"
+              type="text"
+              placeholder="Ваше Имя"
+              style={{ ...inputStyle }}
+            />
             <Form.Text id="passwordHelpBlock" muted>
-              Имя должно быть от 3 символов, при этом
-              {' '}
-              <br />
-              {' '}
-              не содержать пробелы
+              Имя должно быть от 3 символов, при этом <br /> не содержать пробелы
             </Form.Text>
           </Form.Group>
-
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Пароль</Form.Label>
-            <Form.Control onChange={changeHandler} name="password" type="password" placeholder="Пароль" style={{ ...inputStyle, height: '42.5px' }} />
+            <Form.Control
+              onChange={changeHandler}
+              name="password"
+              type="password"
+              placeholder="Пароль"
+              style={{ ...inputStyle, height: '42.5px' }}
+            />
             <Form.Text id="passwordHelpBlock" muted>
               Пароль должен быть от 8 символов, при этом
               <br />
-              содержать специальный символ и  не
+              содержать специальный символ и не
               <br />
               содержать пробелы
             </Form.Text>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Подтвердите пароль</Form.Label>
-            <Form.Control value={value.password} onChange={changeHandler} type="password" placeholder="Подтвердите пароль" style={{ ...inputStyle, height: '42.5px', color: validPassword(value.password) ? 'green' : 'red' }} />
+            <Form.Control
+              value={value.password}
+              onChange={changeHandler}
+              type="password"
+              placeholder="Подтвердите пароль"
+              style={{
+                ...inputStyle,
+                height: '42.5px',
+                color: validPassword(value.password) ? 'green' : 'red',
+              }}
+            />
           </Form.Group>
-          {validPassword(value.password) && validUsername(value.name) && validEmail(value.email)
-            ? (
-              <Button variant="success" type="submit" style={{ width: '250px', height: '40px' }}>
-                ЗАРЕГИСТРИРОВАТЬСЯ
-              </Button>
-            )
-            : (
-              <Button variant="danger" type="submit" style={{ width: '250px', height: '40px' }} disabled>
-                ЗАРЕГИСТРИРОВАТЬСЯ
-              </Button>
-            )}
+          {validPassword(value.password) && validUsername(value.name) && validEmail(value.email) ? (
+            <Button variant="success" type="submit" style={{ width: '250px', height: '40px' }}>
+              ЗАРЕГИСТРИРОВАТЬСЯ
+            </Button>
+          ) : (
+            <Button
+              variant="danger"
+              type="submit"
+              style={{ width: '250px', height: '40px' }}
+              // disabled
+            >
+              ЗАРЕГИСТРИРОВАТЬСЯ
+            </Button>
+          )}
         </Form>
       </div>
     </Container>
