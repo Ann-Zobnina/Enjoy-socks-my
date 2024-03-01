@@ -34,14 +34,12 @@ export default function FavoritePage({ socks }) {
         {items.length
           ? (
             <div>
-              {//   style={{
-                //   display: 'flex', gap: '30px', flexWrap: 'wrap', justifyContent: 'flex-start',
-                // }}
-                // >
-              }
               {items?.map((fav) => (
                 <div
                   key={fav.id}
+                  style={{
+                    display: 'flex', marginBottom: '50px',
+                  }}
                 >
                   <FavoriteItem fav={fav} deleteHandler={deleteHandler} />
                 </div>
@@ -55,7 +53,6 @@ export default function FavoritePage({ socks }) {
             </div>
           )}
       </div>
-      {/* </div> */}
     </Container>
   );
 }

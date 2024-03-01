@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Container } from 'react-bootstrap';
 import CartItem from '../ui/CartItem';
 
 export default function CartPage({ cartItems }) {
@@ -16,32 +17,34 @@ export default function CartPage({ cartItems }) {
   };
 
   return (
-    <div>
-      <h1>Корзина:</h1>
-      {items
-        ? (
-          <div style={{
-            display: 'flex', marginLeft: '30px', gap: '30px', flexWrap: 'wrap', justifyContent: 'flex-start',
-          }}
-          >
-            {items?.map((item) => (
-              <div
-                key={item.id}
-                style={{
-                  display: 'flex', marginBottom: '50px',
-                }}
-              >
-                <CartItem item={item} deleteHandler={deleteHandler} />
-              </div>
-            ))}
+    <Container>
+      <h1 style={{ textAlign: 'center', margin: '20px 0' }}>Корзина:</h1>
+      <div style={{
+        minHeight: '500px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start',
+      }}
+      >
+        {items
+          ? (
+            <div>
+              {items?.map((item) => (
+                <div
+                  key={item.id}
+                  style={{
+                    display: 'flex', marginBottom: '50px',
+                  }}
+                >
+                  <CartItem item={item} deleteHandler={deleteHandler} />
+                </div>
+              ))}
 
-          </div>
-        )
-        : (
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <h5 style={{ margin: '50px 50px 50px 50px' }}>Ваша корзина пуста</h5>
-          </div>
-        )}
-    </div>
+            </div>
+          )
+          : (
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <h5 style={{ margin: '50px 50px 50px 50px' }}>Ваша корзина пуста</h5>
+            </div>
+          )}
+      </div>
+    </Container>
   );
 }
