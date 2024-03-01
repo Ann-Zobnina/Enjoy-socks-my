@@ -29,14 +29,14 @@ export default function MainPage() {
         <p>Самое время быть уникальным! Смоделируй свою любимую пару носков!</p>
         <Button
           style={{
-            backgroundImage: 'linear-gradient(to right, #c0392b 0%, #8e44ad  51%, #c0392b  100%)',
-            padding: '20px 80px',
+            backgroundColor: '#FABA35',
+            padding: '20px 50px',
             textAlign: 'center',
-            color: 'white',
+            color: '#000',
             border: 'none',
             cursor: 'pointer',
             borderRadius: '10px',
-            marginLeft: '40px',
+            // marginLeft: '40px',
           }}
           onClick={onClickHandler}
         >

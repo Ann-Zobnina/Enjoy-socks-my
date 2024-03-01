@@ -26,14 +26,14 @@ export default function FormGenerate({
   return (
     <Container className="py-5">
       <Row>
-        <Col lg={8}>
+        <Col lg={4}>
           <FormDisplay
             allColor={allColor}
             selectedImage2={selectedImage2}
             selectedDecor={selectedDecor}
           />
         </Col>
-        <Col lg={4}>
+        <Col lg={8}>
           <FormSetting
             socksColors={socksColors}
             setColor={setColor}

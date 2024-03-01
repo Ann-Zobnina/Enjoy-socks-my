@@ -12,24 +12,26 @@ export default function FormDisplay({ allColor, selectedDecor, selectedImage2 })
         <Svg setColor={allColor} />
       </Card>
       <Card className="card card-content">
-        {selectedDecor && (
-          <img
-            src={selectedDecor}
-            alt="Selected"
-            width="250"
-            height="250"
-            style={{ position: 'absolute', top: '-800px', left: '240px' }}
-          />
-        )}
 
         {selectedImage2 && (
           <img
             src={selectedImage2}
             alt="Selected"
-            width="800"
-            height="800"
-            style={{ position: 'absolute', top: '-890px', left: '10px' }}
+            width="450"
+            height="450"
+            style={{
+              position: 'absolute', top: '-500px', left: '0px', overflow: 'hidden',
+            }}
           />
+        )}
+        {selectedDecor && (
+        <img
+          src={selectedDecor}
+          alt="Selected"
+          width="100"
+          height="100"
+          style={{ position: 'absolute', top: '-450px', left: '140px' }}
+        />
         )}
       </Card>
     </>

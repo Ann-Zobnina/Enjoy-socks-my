@@ -12,8 +12,6 @@ export default function CartItem({ item, deleteHandler }) {
       </Card.Header>
       <Card.Body style={{ borderBottomLeftRadius: '8px', borderBottomRightRadius: '8px' }}>
         <Svg
-          // variant="top"
-          // fluid
           setColor={item.Color.color}
           isFavorites={isFavorites}
           style={{ position: 'relative' }}

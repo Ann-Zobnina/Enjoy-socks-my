@@ -33,7 +33,7 @@ export default function NavBar({ user }) {
             <Navbar.Brand
               href="/"
               style={{
-                fontSize: '39px',
+                fontSize: '40px',
                 fontFamily: '"Caveat", cursive',
               }}
             >
@@ -56,7 +56,7 @@ export default function NavBar({ user }) {
           ) : (
             <>
               <Nav.Link href="/login">
-                Войти
+                Войти/регистрация
               </Nav.Link>
               <Nav.Link href="/render/cart" style={{ color: 'white' }}><FaShoppingCart /></Nav.Link>
             </>

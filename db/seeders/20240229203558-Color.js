@@ -4,27 +4,27 @@ module.exports = {
     await queryInterface.bulkInsert('Colors', [
       {
         color: 'white',
-
+        colorName: 'Белый',
       },
       {
         color: 'yellow',
-
+        colorName: 'Желтый',
       },
       {
         color: 'purple',
-
+        colorName: 'Фиолетовый',
       },
       {
         color: 'pink',
-
+        colorName: 'Розовый',
       },
       {
         color: 'limegreen',
-
+        colorName: 'Салатовый',
       },
       {
         color: 'blue',
-
+        colorName: 'Синий',
       },
     ], {});
   },

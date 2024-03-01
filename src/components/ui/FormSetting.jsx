@@ -4,9 +4,9 @@ import {
   Form, Button, Row, Col,
 } from 'react-bootstrap';
 
-// import { FaHeart, FaShoppingCart } from 'react-icons/fa';
-
-import { FaHeart, FaShoppingCart, FaSquareFull } from 'react-icons/fa';
+import {
+  FaHeart, FaShoppingCart, FaTimes,
+} from 'react-icons/fa';
 
 export default function FormSetting({
   socksColors,
@@ -21,8 +21,10 @@ export default function FormSetting({
   const [colorId, setColorId] = useState(null);
   const [decorId, setDecorId] = useState(null);
   const [imageId, setImageId] = useState(null);
+  const [displayDownload, setDisplayDownload] = useState(false);
 
   const handleColorChange = (newColorId, newColor) => {
+    console.log('text: ', newColor);
     const colorIdNumber = parseInt(newColorId, 10);
     setColorId(colorIdNumber);
     setColor(newColor);
@@ -82,80 +84,10 @@ export default function FormSetting({
   };
 
   return (
-    <>
-      <div className="card card-light container" style={{ fontSize: '39px', fontFamily: '"Caveat", cursive', padding: '20px' }}>
-        <h3 className="text-center">Собери свой дизайн здесь</h3>
-        <div>
-          <h4>Узор</h4>
-          <h4>Картинка</h4>
-          <div
-            className="tshirt color"
-            style={{
-              display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', rowGap: '15px',
-            }}
-          />
-          <h4>Размер картинки</h4>
-          <Form.Control type="range" min="0" max="100" />
-          <h4>Цвет</h4>
-          <h4 style={{ fontSize: '39px', fontFamily: '"Caveat", cursive' }}>Цена: 590₽</h4>
-          <hr style={{ border: '1px solid blue' }} />
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Button variant="primary" style={{ width: '45%' }}>
-              <FaShoppingCart />
-            </Button>
-            <Button variant="primary" style={{ width: '45%' }}>
-              <FaHeart />
-            </Button>
-          </div>
-        </div>
-      </div>
-      <div className="card card-light container">
-        <h3 className="text-center">Settings</h3>
-        <div className="text-center">
-          <div className="tshirt color">
-            {socksDecor.map((decor) => (
-              <button key={decor.id} type="button" onClick={() => { handleImageClick2(decor.decor); setDecorId(decor.id); }}>
-                <img src={decor.decor} width="150" height="150" alt="cactus-green" />
-              </button>
-            ))}
-            {user.role && (
-              <Row>
-                <Col xs={12}>
-                  <Form onSubmit={editProfilePic}>
-                    <Form.Group controlId="formFile" className="mb-3">
-                      <Form.Label>Загрузить декор в формате PNG</Form.Label>
-                      <Form.Control name="decor" type="file" />
-                    </Form.Group>
-                    <Form.Group controlId="formFile" className="mb-3">
-                      <Form.Label>Добавить цвет</Form.Label>
-                      <Form.Control name="color" type="text" />
-                    </Form.Group>
-                    <Form.Group controlId="formFile" className="mb-3">
-                      <Form.Label>Загрузить картинку в формате PNG</Form.Label>
-                      <Form.Control name="image" type="file" />
-                    </Form.Group>
-                    <Button
-                      style={{
-                        backgroundImage: 'linear-gradient(to right, #c0392b 0%, #8e44ad  51%, #c0392b  100%)', padding: '20px 80px', textAlign: 'center', color: 'white', border: 'none', cursor: 'pointer', borderRadius: '10px', marginLeft: '40px',
-                      }}
-                      type="submit"
-                    >
-                      Отправить
-                    </Button>
-                  </Form>
-                </Col>
-              </Row>
-            )}
-            <hr />
-            {images.map((image) => (
-              <button key={image.id} type="button" onClick={() => { handleDecorClick(image.image); setImageId(image.id); }}>
-                <img src={image.image} width="150" height="150" alt="cactus-green" />
-              </button>
-            ))}
-          </div>
-        </div>
-        <hr />
-
+    <div className="card card-light container" style={{ fontSize: '39px', fontFamily: '"Caveat", cursive', padding: '20px' }}>
+      <h3 className="text-center">Собери свой дизайн здесь (цена всех носков 590₽)</h3>
+      <div>
+        <h4>Цвет</h4>
         <Form.Select
           className="form-control form-control-sm mb-2"
           onChange={(e) => handleColorChange(e.target.value, e.target.options[e.target.selectedIndex].text)}
@@ -163,42 +95,65 @@ export default function FormSetting({
         >
           {socksColors.map((colorOption) => (
             <option key={colorOption.id} value={colorOption.id} style={{ backgroundColor: `${colorOption.color}` }}>
-              {/* <FaSquareFull style={{ color: 'pink' }} /> */}
               {colorOption.color}
             </option>
           ))}
         </Form.Select>
+        <h4>Узор</h4>
+        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+          {socksDecor.map((decor) => (
+            <button key={decor.id} type="button" style={{ borderRadius: '8px' }} onClick={() => { handleImageClick2(decor.decor); setDecorId(decor.id); }}>
+              <img src={decor.decor} width="100" height="100" alt="decor for socks" />
+            </button>
+          ))}
+        </div>
+        <h4>Картинка</h4>
+        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+          {images.map((image) => (
+            <button key={image.id} type="button" style={{ borderRadius: '8px' }} onClick={() => { handleDecorClick(image.image); setImageId(image.id); }}>
+              <img src={image.image} width="100" height="100" alt="image for socks" />
+            </button>
+          ))}
+        </div>
+        {user.role && (
+          <>
+            <Button variant="primary" type="submit" style={{ width: '100%' }} onClick={() => setDisplayDownload(!displayDownload)}>
+              Добавить декор/картинку
+            </Button>
+            <Row style={{
+              display: displayDownload ? 'block' : 'none', border: '2px solid pink', borderRadius: '10px', margin: '20px 0',
+            }}
+            >
+              <Col xs={12}>
+                <Form onSubmit={editProfilePic}>
+                  <Form.Group controlId="formFile" className="mb-3">
+                    <h4>Загрузить декор в формате PNG</h4>
+                    <Form.Control name="decor" type="file" />
+                  </Form.Group>
+                  <Form.Group controlId="formFile" className="mb-3">
+                    <h4>Загрузить картинку в формате PNG</h4>
+                    <Form.Control name="image" type="file" />
+                  </Form.Group>
+                  <Button variant="primary" type="submit">
+                    Загрузить
+                  </Button>
+                </Form>
+              </Col>
+            </Row>
+          </>
+        )}
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Button variant="primary" style={{ width: '30%' }}>
+            <FaShoppingCart onClick={addToBasket} />
+          </Button>
+          <Button variant="primary" style={{ width: '30%' }}>
+            <FaHeart onClick={addToFavorites} />
+          </Button>
+          <Button variant="primary" style={{ width: '30%' }}>
+            <FaTimes onClick={() => handleReset()} />
+          </Button>
+        </div>
       </div>
-      <hr />
-      <div style={{ display: 'flex' }}>
-        <h4 style={{ marginLeft: '10px' }}>Add to Basket</h4>
-        <h4 style={{ marginLeft: '100px' }}> Favorites</h4>
-      </div>
-      <Button
-        style={{
-          backgroundImage: 'linear-gradient(to right, #c0392b 0%, #8e44ad  51%, #c0392b  100%)', padding: '20px 80px', textAlign: 'center', color: 'white', border: 'none', cursor: 'pointer', borderRadius: '10px',
-        }}
-        onClick={addToBasket}
-      >
-        🛒
-      </Button>
-      <Button
-        style={{
-          backgroundImage: 'linear-gradient(to right, #c0392b 0%, #8e44ad  51%, #c0392b  100%)', padding: '20px 80px', textAlign: 'center', color: 'white', border: 'none', cursor: 'pointer', borderRadius: '10px', marginLeft: '40px',
-        }}
-        onClick={addToFavorites}
-      >
-        🔖
-      </Button>
-      <h4 style={{ marginLeft: '100px' }}> Сбросить</h4>
-      <Button
-        style={{
-          backgroundImage: 'linear-gradient(to right, #c0392b 0%, #8e44ad  51%, #c0392b  100%)', padding: '20px 80px', textAlign: 'center', color: 'white', border: 'none', cursor: 'pointer', borderRadius: '10px', marginLeft: '40px',
-        }}
-        onClick={() => handleReset()}
-      >
-        🔖
-      </Button>
-    </>
+    </div>
   );
 }
