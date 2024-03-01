@@ -14,10 +14,23 @@ export default function FormGenerate({
   const handleDecorClick = (imageSrc) => {
     setSelectedDecor(imageSrc);
   };
-  console.log(socksDecor, 'socksDecor');
+
   const handleImageClick2 = (imageSrc2) => {
     setSelectedImage2(imageSrc2);
   };
+
+  const deleteImage = () => {
+    setSelectedDecor(null);
+  };
+
+  const deleteDecor = () => {
+    setSelectedImage2(null);
+  };
+
+  const deleteColor = () => {
+    setColor(null);
+  };
+
   const handleReset = () => {
     setColor(socksColors[0].color);
     setSelectedDecor(null);
@@ -44,6 +57,9 @@ export default function FormGenerate({
             setSelectedImage2={setSelectedImage2}
             handleDecorClick={handleDecorClick}
             handleImageClick2={handleImageClick2}
+            deleteDecor={deleteDecor}
+            deleteColor={deleteColor}
+            deleteImage={deleteImage}
             socksDecor={socksDecor}
           />
         </Col>
