@@ -36,7 +36,7 @@ export default function FormSetting({
     await axios.post('/api/action/sock/add', formData);
   };
 
-  // test
+  // test tddd
   const addToBasket = async () => {
     try {
       const dataToSend = {
