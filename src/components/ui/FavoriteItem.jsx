@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CloseButton } from 'react-bootstrap';
 import Svg from './Svg';
 
-export default function FavoriteItem({ fav, deleteHandler }) {
+export default function FavoriteItem({ fav, changeHandler }) {
   const isFavorites = true;
   return (
     <>
