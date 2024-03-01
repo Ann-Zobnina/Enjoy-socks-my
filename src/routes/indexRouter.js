@@ -15,12 +15,12 @@ router.get('/generate', async (req, res) => {
   const socksColors = await Color.findAll();
   const socksDecor = await Decor.findAll();
   const images = await Image.findAll();
-  const { id } = res.locals.user;
-  const user = await User.findOne({ where: { id } });
-
-  const allAboutSock = {
-    socksColors, socksDecor, images, user,
-  };
+  const id = res.locals.user?.id;
+  const allAboutSock = { socksColors, socksDecor, images };
+  if (id) {
+    const user = await User.findOne({ where: { id } });
+    allAboutSock.user = user;
+  }
   console.log(socksColors, '<---------');
   res.render('FormGenerate', allAboutSock);
 });

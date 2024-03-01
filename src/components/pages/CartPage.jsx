@@ -16,7 +16,7 @@ export default function CartPage({ socks }) {
       },
       body: {
         id: favItemId,
-        favorite: false,
+        addToCart: true,
       },
     });
     if (response.status === 200) {

@@ -13,7 +13,7 @@ export default function FavoritePage({ socks }) {
       },
       body: {
         id: favItemId,
-        favorite: false,
+        addToFavorite: true,
       },
     });
     if (response.status === 200) {
