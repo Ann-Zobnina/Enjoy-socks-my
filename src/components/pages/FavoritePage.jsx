@@ -5,7 +5,7 @@ import FavoriteItem from '../ui/FavoriteItem';
 export default function FavoritePage({ socks }) {
   const [items, setItems] = useState(socks);
 
-  const deleteHandler = async (favItemId) => {
+  const changeHandler = async (favItemId) => {
     const response = await fetch('/api/change/favorite', {
       method: 'PUT',
       headers: {
@@ -46,7 +46,7 @@ export default function FavoritePage({ socks }) {
                     display: 'flex', marginBottom: '50px',
                   }}
                 >
-                  <FavoriteItem fav={fav} deleteHandler={deleteHandler} />
+                  <FavoriteItem fav={fav} changeHandler={changeHandler} />
                 </div>
               ))}
 

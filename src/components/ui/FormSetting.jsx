@@ -3,7 +3,11 @@ import React, { useState } from 'react';
 import {
   Form, Button, Row, Col,
 } from 'react-bootstrap';
+
+import { FaHeart, FaShoppingCart } from 'react-icons/fa';
+
 import { FaHeart, FaShoppingCart, FaSquareFull } from 'react-icons/fa';
+
 
 export default function FormSetting({
   socksColors,
@@ -80,10 +84,7 @@ export default function FormSetting({
 
   return (
     <>
-      <div
-        className="card card-light container"
-        style={{ fontSize: '39px', fontFamily: '"Caveat", cursive', padding: '20px' }}
-      >
+      <div className="card card-light container" style={{ fontSize: '39px', fontFamily: '"Caveat", cursive', padding: '20px' }}>
         <h3 className="text-center">Собери свой дизайн здесь</h3>
         <div>
           <h4>Узор</h4>
@@ -91,10 +92,7 @@ export default function FormSetting({
           <div
             className="tshirt color"
             style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              flexWrap: 'wrap',
-              rowGap: '15px',
+              display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', rowGap: '15px',
             }}
           />
           <h4>Размер картинки</h4>
@@ -117,14 +115,7 @@ export default function FormSetting({
         <div className="text-center">
           <div className="tshirt color">
             {socksDecor.map((decor) => (
-              <button
-                key={decor.id}
-                type="button"
-                onClick={() => {
-                  handleImageClick2(decor.decor);
-                  setDecorId(decor.id);
-                }}
-              >
+              <button key={decor.id} type="button" onClick={() => { handleImageClick2(decor.decor); setDecorId(decor.id); }}>
                 <img src={decor.decor} width="150" height="150" alt="cactus-green" />
               </button>
             ))}
@@ -146,15 +137,7 @@ export default function FormSetting({
                     </Form.Group>
                     <Button
                       style={{
-                        backgroundImage:
-                          'linear-gradient(to right, #c0392b 0%, #8e44ad  51%, #c0392b  100%)',
-                        padding: '20px 80px',
-                        textAlign: 'center',
-                        color: 'white',
-                        border: 'none',
-                        cursor: 'pointer',
-                        borderRadius: '10px',
-                        marginLeft: '40px',
+                        backgroundImage: 'linear-gradient(to right, #c0392b 0%, #8e44ad  51%, #c0392b  100%)', padding: '20px 80px', textAlign: 'center', color: 'white', border: 'none', cursor: 'pointer', borderRadius: '10px', marginLeft: '40px',
                       }}
                       type="submit"
                     >
@@ -166,20 +149,18 @@ export default function FormSetting({
             )}
             <hr />
             {images.map((image) => (
-              <button
-                key={image.id}
-                type="button"
-                onClick={() => {
-                  handleDecorClick(image.image);
-                  setImageId(image.id);
-                }}
-              >
+              <button key={image.id} type="button" onClick={() => { handleDecorClick(image.image); setImageId(image.id); }}>
                 <img src={image.image} width="150" height="150" alt="cactus-green" />
               </button>
             ))}
           </div>
         </div>
         <hr />
+
+        <Form.Select className="form-control form-control-sm mb-2" onChange={(e) => handleColorChange(e.target.value, e.target.options[e.target.selectedIndex].text)} value={socksColors}>
+          {socksColors.map((colorOption) => (
+            <option key={colorOption.id} value={colorOption.id}>{colorOption.color}</option>
+
         <Form.Select
           className="form-control form-control-sm mb-2"
           onChange={(e) => handleColorChange(e.target.value, e.target.options[e.target.selectedIndex].text)}
@@ -190,6 +171,7 @@ export default function FormSetting({
               {/* <FaSquareFull style={{ color: 'pink' }} /> */}
               {colorOption.color}
             </option>
+
           ))}
         </Form.Select>
       </div>
@@ -200,13 +182,7 @@ export default function FormSetting({
       </div>
       <Button
         style={{
-          backgroundImage: 'linear-gradient(to right, #c0392b 0%, #8e44ad  51%, #c0392b  100%)',
-          padding: '20px 80px',
-          textAlign: 'center',
-          color: 'white',
-          border: 'none',
-          cursor: 'pointer',
-          borderRadius: '10px',
+          backgroundImage: 'linear-gradient(to right, #c0392b 0%, #8e44ad  51%, #c0392b  100%)', padding: '20px 80px', textAlign: 'center', color: 'white', border: 'none', cursor: 'pointer', borderRadius: '10px',
         }}
         onClick={addToBasket}
       >
@@ -214,14 +190,7 @@ export default function FormSetting({
       </Button>
       <Button
         style={{
-          backgroundImage: 'linear-gradient(to right, #c0392b 0%, #8e44ad  51%, #c0392b  100%)',
-          padding: '20px 80px',
-          textAlign: 'center',
-          color: 'white',
-          border: 'none',
-          cursor: 'pointer',
-          borderRadius: '10px',
-          marginLeft: '40px',
+          backgroundImage: 'linear-gradient(to right, #c0392b 0%, #8e44ad  51%, #c0392b  100%)', padding: '20px 80px', textAlign: 'center', color: 'white', border: 'none', cursor: 'pointer', borderRadius: '10px', marginLeft: '40px',
         }}
         onClick={addToFavorites}
       >
@@ -230,14 +199,7 @@ export default function FormSetting({
       <h4 style={{ marginLeft: '100px' }}> Сбросить</h4>
       <Button
         style={{
-          backgroundImage: 'linear-gradient(to right, #c0392b 0%, #8e44ad  51%, #c0392b  100%)',
-          padding: '20px 80px',
-          textAlign: 'center',
-          color: 'white',
-          border: 'none',
-          cursor: 'pointer',
-          borderRadius: '10px',
-          marginLeft: '40px',
+          backgroundImage: 'linear-gradient(to right, #c0392b 0%, #8e44ad  51%, #c0392b  100%)', padding: '20px 80px', textAlign: 'center', color: 'white', border: 'none', cursor: 'pointer', borderRadius: '10px', marginLeft: '40px',
         }}
         onClick={() => handleReset()}
       >

@@ -31,7 +31,12 @@ router.get('/login', async (req, res) => {
 
 router.get('/cart', async (req, res) => {
   try {
-    const socks = await Cart.findAll({ where: { userId: res.locals?.user?.id } });
+    const userId = res.locals.user.id;
+    const socks = await Sock.findAll({
+      where: { userId },
+      include: [Color, Image, Decor],
+    });
+
     res.render('CartPage', { socks });
   } catch (err) {
     res.status(500).json(err.message);
