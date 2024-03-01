@@ -16,7 +16,7 @@ export default function CartPage({ socks }) {
       },
       body: {
         id: favItemId,
-        favorite: false,
+        addToCart: true,
       },
     });
     if (response.status === 200) {
@@ -58,8 +58,7 @@ export default function CartPage({ socks }) {
                   marginBottom: '50px',
                 }}
               >
-                <CartItem item={item} deleteHandler={deleteHandler} />
-                {/* <FavoriteItem fav={fav} changeHandler={changeHandler} /> */}
+                <CartItem item={item} changeHandler={changeHandler} deleteHandler={deleteHandler} />
               </div>
             ))}
           </div>
@@ -72,3 +71,5 @@ export default function CartPage({ socks }) {
     </Container>
   );
 }
+
+// dd

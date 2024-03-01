@@ -15,12 +15,13 @@ router.get('/generate', async (req, res) => {
   const socksColors = await Color.findAll();
   const socksDecor = await Decor.findAll();
   const images = await Image.findAll();
-  const { id } = res.locals.user;
-  const user = await User.findOne({ where: { id } });
+  const id = res.locals.user?.id;
+  const allAboutSock = { socksColors, socksDecor, images };
+  if (id) {
+    const user = await User.findOne({ where: { id } });
+    allAboutSock.user = user;
+  }
 
-  const allAboutSock = {
-    socksColors, socksDecor, images, user,
-  };
   console.log(socksColors, '<---------');
   res.render('FormGenerate', allAboutSock);
 });
@@ -31,11 +32,15 @@ router.get('/login', async (req, res) => {
 
 router.get('/cart', async (req, res) => {
   try {
-    const userId = res.locals.user.id;
-    const socks = await Sock.findAll({
-      where: { userId },
-      include: [Color, Image, Decor],
-    });
+    const userId = res.locals.user?.id;
+
+    let socks;
+    if (userId) {
+      socks = await Sock.findAll({
+        where: { userId },
+        include: [Color, Image, Decor],
+      });
+    }
 
     res.render('CartPage', { socks });
   } catch (err) {
