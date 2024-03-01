@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Form, Button, Row, Col } from 'react-bootstrap';
-import { FaHeart, FaShoppingCart } from 'react-icons/fa';
+import {
+  Form, Button, Row, Col,
+} from 'react-bootstrap';
+import { FaHeart, FaShoppingCart, FaSquareFull } from 'react-icons/fa';
 
 export default function FormSetting({
   socksColors,
@@ -180,13 +182,12 @@ export default function FormSetting({
         <hr />
         <Form.Select
           className="form-control form-control-sm mb-2"
-          onChange={(e) =>
-            handleColorChange(e.target.value, e.target.options[e.target.selectedIndex].text)
-          }
+          onChange={(e) => handleColorChange(e.target.value, e.target.options[e.target.selectedIndex].text)}
           value={socksColors}
         >
           {socksColors.map((colorOption) => (
-            <option key={colorOption.id} value={colorOption.id}>
+            <option key={colorOption.id} value={colorOption.id} style={{ backgroundColor: `${colorOption.color}` }}>
+              {/* <FaSquareFull style={{ color: 'pink' }} /> */}
               {colorOption.color}
             </option>
           ))}
