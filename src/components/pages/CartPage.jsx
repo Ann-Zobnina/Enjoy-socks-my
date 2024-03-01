@@ -58,7 +58,7 @@ export default function CartPage({ socks }) {
                   marginBottom: '50px',
                 }}
               >
-                <CartItem item={item} deleteHandler={deleteHandler} />
+                <CartItem item={item} changeHandler={changeHandler} deleteHandler={deleteHandler} />
                 {/* <FavoriteItem fav={fav} changeHandler={changeHandler} /> */}
               </div>
             ))}

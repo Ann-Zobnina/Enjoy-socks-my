@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import Svg from './Svg';
 
-export default function CartItem({ item, deleteHandler }) {
+export default function CartItem({ item, changeHandler, deleteHandler }) {
   const isFavorites = true;
   return (
     <>

@@ -4,9 +4,7 @@ import {
   Form, Button, Row, Col,
 } from 'react-bootstrap';
 
-// import { FaHeart, FaShoppingCart } from 'react-icons/fa';
-
-import { FaHeart, FaShoppingCart, FaSquareFull } from 'react-icons/fa';
+import { FaHeart, FaShoppingCart, FaTimes } from 'react-icons/fa';
 
 export default function FormSetting({
   socksColors,
@@ -15,12 +13,27 @@ export default function FormSetting({
   handleImageClick2,
   socksDecor,
   handleReset,
+  deleteDecor,
+  deleteImage,
+  deleteColor,
   images,
   user,
 }) {
   const [colorId, setColorId] = useState(null);
   const [decorId, setDecorId] = useState(null);
   const [imageId, setImageId] = useState(null);
+
+  const handleDecorationReset = () => {
+    setDecorId(null);
+  };
+
+  const handleImageReset = () => {
+    setImageId(null);
+  };
+
+  const handleColorReset = () => {
+    setColorId(null);
+  };
 
   const handleColorChange = (newColorId, newColor) => {
     const colorIdNumber = parseInt(newColorId, 10);
@@ -65,7 +78,6 @@ export default function FormSetting({
         decorId,
         imageId,
       };
-
       const response = await fetch('/api/action/sock/like', {
         method: 'POST',
         headers: {
@@ -94,16 +106,14 @@ export default function FormSetting({
               display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', rowGap: '15px',
             }}
           />
-          <h4>Размер картинки</h4>
-          <Form.Control type="range" min="0" max="100" />
           <h4>Цвет</h4>
           <h4 style={{ fontSize: '39px', fontFamily: '"Caveat", cursive' }}>Цена: 590₽</h4>
           <hr style={{ border: '1px solid blue' }} />
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Button variant="primary" style={{ width: '45%' }}>
+            <Button onClick={addToBasket} variant="primary" style={{ width: '45%' }}>
               <FaShoppingCart />
             </Button>
-            <Button variant="primary" style={{ width: '45%' }}>
+            <Button onClick={addToFavorites} variant="primary" style={{ width: '45%' }}>
               <FaHeart />
             </Button>
           </div>
@@ -118,6 +128,16 @@ export default function FormSetting({
                 <img src={decor.decor} width="150" height="150" alt="cactus-green" />
               </button>
             ))}
+            <Button
+              onClick={() => {
+                socksDecor.forEach((decor) => deleteDecor(decor.decor));
+              }}
+              variant="primary"
+              style={{ width: '45%' }}
+            >
+              Убрать Узор
+            </Button>
+            <div />
             {user.role && (
               <Row>
                 <Col xs={12}>
@@ -152,6 +172,15 @@ export default function FormSetting({
                 <img src={image.image} width="150" height="150" alt="cactus-green" />
               </button>
             ))}
+            <Button
+              onClick={() => {
+                socksDecor.forEach((image) => deleteImage(image.image));
+              }}
+              variant="primary"
+              style={{ width: '45%' }}
+            >
+              Убрать Картинку
+            </Button>
           </div>
         </div>
         <hr />
@@ -168,37 +197,17 @@ export default function FormSetting({
             </option>
           ))}
         </Form.Select>
+        <Button
+          onClick={() => {
+            socksDecor.forEach((color) => deleteColor(color.color));
+          }}
+          variant="primary"
+          style={{ width: '45%' }}
+        >
+          Убрать Цвет
+        </Button>
       </div>
       <hr />
-      <div style={{ display: 'flex' }}>
-        <h4 style={{ marginLeft: '10px' }}>Add to Basket</h4>
-        <h4 style={{ marginLeft: '100px' }}> Favorites</h4>
-      </div>
-      <Button
-        style={{
-          backgroundImage: 'linear-gradient(to right, #c0392b 0%, #8e44ad  51%, #c0392b  100%)', padding: '20px 80px', textAlign: 'center', color: 'white', border: 'none', cursor: 'pointer', borderRadius: '10px',
-        }}
-        onClick={addToBasket}
-      >
-        🛒
-      </Button>
-      <Button
-        style={{
-          backgroundImage: 'linear-gradient(to right, #c0392b 0%, #8e44ad  51%, #c0392b  100%)', padding: '20px 80px', textAlign: 'center', color: 'white', border: 'none', cursor: 'pointer', borderRadius: '10px', marginLeft: '40px',
-        }}
-        onClick={addToFavorites}
-      >
-        🔖
-      </Button>
-      <h4 style={{ marginLeft: '100px' }}> Сбросить</h4>
-      <Button
-        style={{
-          backgroundImage: 'linear-gradient(to right, #c0392b 0%, #8e44ad  51%, #c0392b  100%)', padding: '20px 80px', textAlign: 'center', color: 'white', border: 'none', cursor: 'pointer', borderRadius: '10px', marginLeft: '40px',
-        }}
-        onClick={() => handleReset()}
-      >
-        🔖
-      </Button>
     </>
   );
 }
