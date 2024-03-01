@@ -1,7 +1,7 @@
-'use strict';
 const {
-  Model
+  Model,
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Cart extends Model {
     static associate({ User, Sock }) {
@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
   Cart.init({
     userId: DataTypes.INTEGER,
     sockId: DataTypes.INTEGER,
-    count: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Cart',

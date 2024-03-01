@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import Svg from './Svg';
 
-export default function FormDisplay({ allColor, selectedImage, selectedImage2 }) {
+export default function FormDisplay({ allColor, selectedDecor, selectedImage2 }) {
   return (
     <>
       <Card
@@ -12,9 +12,9 @@ export default function FormDisplay({ allColor, selectedImage, selectedImage2 })
         <Svg setColor={allColor} />
       </Card>
       <Card className="card card-content">
-        {selectedImage && (
+        {selectedDecor && (
           <img
-            src={selectedImage}
+            src={selectedDecor}
             alt="Selected"
             width="250"
             height="250"

@@ -8,6 +8,7 @@ module.exports = {
       name: 'admin',
       email: 'info@enjoysocks.ru',
       hashpass: adminpass,
+      role: true,
     }], {});
   },
 

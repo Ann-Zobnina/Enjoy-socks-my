@@ -3,23 +3,24 @@ import { Container, Row, Col } from 'react-bootstrap';
 import FormDisplay from '../ui/FormDisplay';
 import FormSetting from '../ui/FormSetting';
 
-export default function FormGenerate({ socksColors }) {
-  const [allColor, setColor] = useState(socksColors);
-  const [selectedImage, setSelectedImage] = useState(null);
+export default function FormGenerate({ socksColors, socksDecor, images, user }) {
+  const [allColor, setColor] = useState(socksColors[0].color);
+  const [selectedDecor, setSelectedDecor] = useState(null);
   const [selectedImage2, setSelectedImage2] = useState(null);
+  console.log(user.role, 'user');
 
-  const handleImageClick = (imageSrc) => {
-    setSelectedImage(imageSrc);
+  const handleDecorClick = (imageSrc) => {
+    setSelectedDecor(imageSrc);
   };
-
+  console.log(socksDecor, 'socksDecor');
   const handleImageClick2 = (imageSrc2) => {
     setSelectedImage2(imageSrc2);
   };
-
-  const handleSockColorChange = (newColor) => {
-    setColor(newColor);
+  const handleReset = () => {
+    setColor(socksColors[0].color);
+    setSelectedDecor(null);
+    setSelectedImage2(null);
   };
-
   return (
     <Container className="py-5">
       <Row>
@@ -27,16 +28,21 @@ export default function FormGenerate({ socksColors }) {
           <FormDisplay
             allColor={allColor}
             selectedImage2={selectedImage2}
-            selectedImage={selectedImage}
+            selectedDecor={selectedDecor}
           />
         </Col>
         <Col lg={4}>
           <FormSetting
             socksColors={socksColors}
             setColor={setColor}
-            handleSockColorChange={handleSockColorChange}
-            handleImageClick={handleImageClick}
+            images={images}
+            user={user}
+            handleReset={handleReset}
+            setSelectedDecor={setSelectedDecor}
+            setSelectedImage2={setSelectedImage2}
+            handleDecorClick={handleDecorClick}
             handleImageClick2={handleImageClick2}
+            socksDecor={socksDecor}
           />
         </Col>
       </Row>
