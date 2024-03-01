@@ -32,11 +32,15 @@ router.get('/login', async (req, res) => {
 
 router.get('/cart', async (req, res) => {
   try {
-    const userId = res.locals.user.id;
-    const socks = await Sock.findAll({
-      where: { userId },
-      include: [Color, Image, Decor],
-    });
+    const userId = res.locals.user?.id;
+
+    let socks;
+    if (userId) {
+      socks = await Sock.findAll({
+        where: { userId },
+        include: [Color, Image, Decor],
+      });
+    }
 
     res.render('CartPage', { socks });
   } catch (err) {
