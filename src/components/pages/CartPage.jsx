@@ -48,7 +48,7 @@ export default function CartPage({ socks }) {
           alignItems: 'flex-start',
         }}
       >
-        {items.length ? (
+        {items ? (
           <div>
             {items?.map((item) => (
               <div

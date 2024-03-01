@@ -23,18 +23,6 @@ export default function FormSetting({
   const [decorId, setDecorId] = useState(null);
   const [imageId, setImageId] = useState(null);
 
-  const handleDecorationReset = () => {
-    setDecorId(null);
-  };
-
-  const handleImageReset = () => {
-    setImageId(null);
-  };
-
-  const handleColorReset = () => {
-    setColorId(null);
-  };
-
   const handleColorChange = (newColorId, newColor) => {
     const colorIdNumber = parseInt(newColorId, 10);
     setColorId(colorIdNumber);
