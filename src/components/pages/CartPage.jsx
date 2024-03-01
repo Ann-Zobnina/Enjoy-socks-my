@@ -14,7 +14,7 @@ export default function CartPage({ cartItems }) {
       const message = await response.data.json();
       console.log(message);
     }
-  };
+  }; //
 
   return (
     <Container>

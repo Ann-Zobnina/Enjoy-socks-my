@@ -17,6 +17,7 @@ export default function Layout({ children, initState }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet" />
+        <link rel="icon" href="/img/logo.svg" />
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
