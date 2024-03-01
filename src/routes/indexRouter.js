@@ -21,6 +21,7 @@ router.get('/generate', async (req, res) => {
     const user = await User.findOne({ where: { id } });
     allAboutSock.user = user;
   }
+
   console.log(socksColors, '<---------');
   res.render('FormGenerate', allAboutSock);
 });
