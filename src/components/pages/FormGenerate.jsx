@@ -3,7 +3,9 @@ import { Container, Row, Col } from 'react-bootstrap';
 import FormDisplay from '../ui/FormDisplay';
 import FormSetting from '../ui/FormSetting';
 
-export default function FormGenerate({ socksColors, socksDecor, images, user }) {
+export default function FormGenerate({
+  socksColors, socksDecor, images, user,
+}) {
   const [allColor, setColor] = useState(socksColors[0].color);
   const [selectedDecor, setSelectedDecor] = useState(null);
   const [selectedImage2, setSelectedImage2] = useState(null);
