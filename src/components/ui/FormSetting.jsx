@@ -4,10 +4,9 @@ import {
   Form, Button, Row, Col,
 } from 'react-bootstrap';
 
-import { FaHeart, FaShoppingCart } from 'react-icons/fa';
+// import { FaHeart, FaShoppingCart } from 'react-icons/fa';
 
 import { FaHeart, FaShoppingCart, FaSquareFull } from 'react-icons/fa';
-
 
 export default function FormSetting({
   socksColors,
@@ -157,10 +156,6 @@ export default function FormSetting({
         </div>
         <hr />
 
-        <Form.Select className="form-control form-control-sm mb-2" onChange={(e) => handleColorChange(e.target.value, e.target.options[e.target.selectedIndex].text)} value={socksColors}>
-          {socksColors.map((colorOption) => (
-            <option key={colorOption.id} value={colorOption.id}>{colorOption.color}</option>
-
         <Form.Select
           className="form-control form-control-sm mb-2"
           onChange={(e) => handleColorChange(e.target.value, e.target.options[e.target.selectedIndex].text)}
@@ -171,7 +166,6 @@ export default function FormSetting({
               {/* <FaSquareFull style={{ color: 'pink' }} /> */}
               {colorOption.color}
             </option>
-
           ))}
         </Form.Select>
       </div>
