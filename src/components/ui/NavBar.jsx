@@ -27,7 +27,7 @@ export default function NavBar({ user }) {
             width="30"
             height="30"
             className="d-inline-block align-top"
-            alt="React Bootstrap logo"
+            alt="Enjoy socks logo"
           />
           <div>
             <Navbar.Brand
